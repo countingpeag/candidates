@@ -1,0 +1,20 @@
+
+.color1{
+      
+    background-color: aqua;  
+}
+
+.color3{
+    background-color: brown;
+}
+
+.next{
+    padding-left: 50%;
+}
+
+.boxShadow{
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: 0px 0px 37px 1px rgba(168,234,250,1);
+}

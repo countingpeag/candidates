@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-
+import '../../Styles/StylesPreferences.css';
 
 class PreferencesInfo extends Component {
     constructor(){
@@ -32,9 +32,11 @@ class PreferencesInfo extends Component {
         const { scholarship,turn,info } = this.state;
         return(
             <Grid>
-                <Row > 
-                <Col xs={4}>
-                                <FormControl variant="outlined" id='FControl'>
+                <Row> 
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Beca PROSPERA? </InputLabel>
                                     <Select value={scholarship} onChange={this.handleChange} name="scholarship" >
                                         <MenuItem value=''>
@@ -48,9 +50,9 @@ class PreferencesInfo extends Component {
                                         </MenuItem> 
                                     </Select>
                                 </FormControl>
-                        </Col>
-                        <Col xs={4} >
-                            <FormControl variant="outlined" id='FControl'>
+                            </Col>
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel>Turno deseado </InputLabel>
                                     <Select value={turn} onChange={this.handleChange} name="turn">
                                         <MenuItem value=''>
@@ -63,29 +65,30 @@ class PreferencesInfo extends Component {
                                             Tarde
                                         </MenuItem>
                                     </Select>
-                                    </FormControl>
-                        </Col>
-                        <Col xs={4} >
-                                <FormControl variant="outlined" id='FControl'>
-                                        <InputLabel> ¿Como se entero? </InputLabel>
-                                        <Select value={info} onChange={this.handleChange} name="info">
-                                            <MenuItem value=''>
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={'family'}>
-                                               <em> Familiares/Amigos</em>
-                                            </MenuItem>
-                                            <MenuItem value={'internet'}>
-                                               Internet
-                                            </MenuItem> 
-                                            <MenuItem value={'visit'}>
-                                                Visita a Secundaria
-                                            </MenuItem> 
-                                        </Select>
-                                        </FormControl>
-                        </Col>
-                    </Row>
-                        
+                                </FormControl>
+                            </Col>
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectWidth">
+                                    <InputLabel> ¿Como se entero? </InputLabel>
+                                    <Select value={info} onChange={this.handleChange} name="info">
+                                        <MenuItem value=''>
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'family'}>
+                                        <em> Familiares/Amigos</em>
+                                        </MenuItem>
+                                        <MenuItem value={'internet'}>
+                                        Internet
+                                        </MenuItem> 
+                                        <MenuItem value={'visit'}>
+                                            Visita a Secundaria
+                                        </MenuItem> 
+                                    </Select>
+                                </FormControl>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>   
             </Grid>
         );
             

@@ -6,64 +6,72 @@ class Parents extends Component{
     render(){
         return(
             <Grid>
-                    <Row between="xs">
-                        <Col xs={2}>
-                            <TextField
-                                    id="NameMom"
-                                    label="Nombre de la madre"
-                                    name="NameMom"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="ocupationMom"
-                                    label="Ocupacion"
-                                    name="ocupationMom"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="phoneMom"
-                                    label="Numero de telefono"
-                                    name="phoneMom"
-                                    margin="normal"
-                                    variant="outlined"
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4}>
+                                <TextField
+                                        id="NameMom"
+                                        label="Nombre de la madre"
+                                        name="NameMom"
+                                        margin="normal"
+                                        variant="outlined"
                                 />   
-                        </Col>
-                    </Row>
-                    <Row between="xs">
-                        <Col xs={2}>
-                            <TextField
-                                    id="nameDad"
-                                    label="Nombre del padre"
-                                    name="nameDad"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="ocupationDad"
-                                    label="Ocupacion"
-                                    name="ocupationDad"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="phoneDad"
-                                    label="Numero de telefono"
-                                    name="phoneDad"
-                                    margin="normal"
-                                    variant="outlined"
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="ocupationMom"
+                                        label="Ocupacion"
+                                        name="ocupationMom"
+                                        margin="normal"
+                                        variant="outlined"
                                 />   
-                        </Col>
-                    </Row>
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="phoneMom"
+                                        label="Numero de telefono"
+                                        name="phoneMom"
+                                        margin="normal"
+                                        variant="outlined"
+                                    />   
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4}>
+                                <TextField
+                                        id="nameDad"
+                                        label="Nombre del padre"
+                                        name="nameDad"
+                                        margin="normal"
+                                        variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="ocupationDad"
+                                        label="Ocupacion"
+                                        name="ocupationDad"
+                                        margin="normal"
+                                        variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="phoneDad"
+                                        label="Numero de telefono"
+                                        name="phoneDad"
+                                        margin="normal"
+                                        variant="outlined"
+                                    />   
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
             </Grid>
         );
     }

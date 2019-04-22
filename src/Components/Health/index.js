@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import { Row, Col } from 'react-flexbox-grid';
 import HealthFormInfo from './HealthFormInfo';
 import HealthFormSelect from './HealthFormSelect';
+import '../../Styles/StylesHealt.css';
 
 class HealthForm extends Component{
     render(){

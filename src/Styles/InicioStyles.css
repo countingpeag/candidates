@@ -1,6 +1,5 @@
 
 .color1{
-      
     background-color: aqua;  
 }
 
@@ -9,12 +8,18 @@
 }
 
 .next{
-    padding-left: 50%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 6%;
+}
+
+.newCandidate{
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .boxShadow{
-
     margin-top: 2%;
     margin-bottom: 2%;
-    box-shadow: 0px 0px 37px 1px rgba(168,234,250,1);
+    box-shadow: 10px 10px 38px -4px rgba(0,0,0,0.75);
 }

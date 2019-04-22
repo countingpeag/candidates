@@ -1,8 +1,13 @@
-
-
 h2{
-    color: blue;;
-    text-align: center;
-  
+    color: gray;
+    padding-left: 7%;
+}
+
+.size{
+    width: 120px;
+}
+
+.topSpace{
+    padding-top: 2%;
 }
 

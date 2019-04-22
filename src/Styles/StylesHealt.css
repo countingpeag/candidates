@@ -1,14 +1,7 @@
-.separate{
-    padding: 10px;
+.selectsWidthLarge{
+    width: 260px;
+}
 
-}
-#FControl
-{
-    padding: 35px;
-    text-align:center;
-}
-#gridSelect
-{
-    text-align: center;
-    align-items: center;
+.selectsWidthShort{
+    width: 150px;
 }

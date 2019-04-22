@@ -30,72 +30,85 @@ class PersonalData extends Component{
         const { civilStatus,sex } = this.state;
         return(
             <Grid>
-                <Row between="xs">
-                        <Col xs={2}>
-                        <TextField 
-                            id="Name"
-                            label="Nombre"
-                            name="name"
-                            autoComplete="name"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        </Col>                    
-                        <Col xs={2} >
-                        <TextField
-                            id="LastNamep"
-                            label="Apellido Paterno"
-                            name="LastNamep"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        </Col>
-                        <Col xs={2}>
-                        <TextField
-                            id="LastNamem"
-                            label="Apellido Materno"
-                            name="LastNamem"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12} md={3}>
-                        <TextField  id='FControl'
-                            id="date"
-                            label="Fecha de nacimeinto"
-                            type="date"                          
-                            InputLabelProps={{
-                            shrink: true,
-                            }}
-                        />
-                        </Col>  
-                    </Row>
-                    <Row between="xs">
-                        <Col xs={2}>
-                            <FormControl variant="outlined" id='FControl'>
-                                    <InputLabel>Estado Civil</InputLabel>
-                                    <Select value={civilStatus} onChange={this.handleChange} name="civilStatus">
-                                        <MenuItem value=''>
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={'single'}>
-                                            Soltero
-                                        </MenuItem>
-                                        <MenuItem value={'married'}>
-                                            Casado
-                                        </MenuItem>
-                                        <MenuItem value={'divorced'}>
-                                            Divorciado
-                                        </MenuItem>
-                                    </Select>
-                                </FormControl>
-                        </Col>
-                        <Col xs={2}>
-                            <FormControl variant="outlined" id='FControl' >
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={6} md={4}>
+                            <TextField 
+                                id="Name"
+                                label="Nombre"
+                                name="name"
+                                autoComplete="name"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            </Col>                    
+                            <Col xs={6} md={4} >
+                                <TextField
+                                    id="LastNamep"
+                                    label="Apellido Paterno"
+                                    name="LastNamep"
+                                    margin="normal"
+                                    variant="outlined"
+                                />
+                            </Col>
+                            <Col xs={6} md={4}>
+                                <TextField
+                                    id="LastNamem"
+                                    label="Apellido Materno"
+                                    name="LastNamem"
+                                    margin="normal"
+                                    variant="outlined"
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={6} md={4}>
+                                <TextField
+                                    id="Age"
+                                    label="Edad"
+                                    name="age"
+                                    margin="normal"
+                                    variant="outlined"
+                                />
+                            </Col>
+                            <Col xs={12} md={4} className="topSpace">
+                                <TextField
+                                    id="date"
+                                    label="Fecha de nacimeinto"
+                                    type="date"                          
+                                    InputLabelProps={{
+                                    shrink: true,
+                                    }}
+                                />
+                            </Col>    
+                            <Col xs={2} className="topSpace">
+                                <FormControl variant="outlined" className="size">
+                                        <InputLabel>Estado Civil</InputLabel>
+                                        <Select value={""} onChange={this.handleChange} name="civilStatus">
+                                            <MenuItem value=''>
+                                                <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={'single'}>
+                                                Soltero
+                                            </MenuItem>
+                                            <MenuItem value={'married'}>
+                                                Casado
+                                            </MenuItem>
+                                            <MenuItem value={'divorced'}>
+                                                Divorciado
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                            </Col>
+                            <Col xs={2} className="topSpace">
+                                <FormControl variant="outlined" className="size">
                                     <InputLabel>Sexo</InputLabel>
-                                    <Select onChange={this.handleChange} value={sex} name="sex">
+                                    <Select onChange={this.handleChange} value={""} name="sex">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
@@ -107,17 +120,17 @@ class PersonalData extends Component{
                                         </MenuItem>
                                     </Select>
                                 </FormControl>
-                        </Col>                   
-                    <Col xs={2}>
-                        <TextField
-                            id="Age"
-                            label="Edad"
-                            name="age"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        </Col>   
-                    </Row>
+                            </Col>                   
+                        </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Row start="xs">
+                            
+                        </Row>
+                    </Col>
+                </Row>
             </Grid>
         );
     }

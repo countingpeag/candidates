@@ -4,7 +4,6 @@ import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-import StylesHealt from '../../Styles/StylesHealt.css';
 
 class HealtFormSelect extends Component{
     constructor(){
@@ -36,101 +35,63 @@ class HealtFormSelect extends Component{
     render(){      
         const { disease,disability,glasses,smokes,laterality } = this.state;
         return(
-            <Grid id="gridSelect">
-                <Row > 
-                 <Col xs={6} className="separate">
-                            <FormControl variant="outlined" id='FControl'>
-                                    <InputLabel> ¿Padece alguna enfermedad? </InputLabel>
-                                    <Select value={disease} onChange={this.handleChange} name="disease" >
+            <Grid>
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectsWidthShort">
+                                    <InputLabel> ¿Usa lentes? </InputLabel>
+                                    <Select value={glasses} onChange={this.handleChange} name="glasses">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'yesE'}>
+                                        <MenuItem value={'yesL'}>
                                             Si
                                         </MenuItem>
-                                        <MenuItem value={'noE'}>
+                                        <MenuItem value={'noL'}>
                                             No
                                         </MenuItem> 
                                     </Select>
                                 </FormControl>
-                        </Col>
-                        <Col xs={6} className="separate">
-                            <FormControl variant="outlined" id='FControl'>
-                                    <InputLabel> ¿Padece alguna discapacidad? </InputLabel>
-                                    <Select value={disability} onChange={this.handleChange} name="disability">
+                            </Col>
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectsWidthShort">
+                                    <InputLabel> ¿Fuma? </InputLabel>
+                                    <Select value={smokes} onChange={this.handleChange} name="smokes">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'nod'}>
-                                            No
+                                        <MenuItem value={'yesS'}>
+                                            Si
                                         </MenuItem>
-                                        <MenuItem value={'motriz'}>
-                                            Motriz
-                                        </MenuItem> 
-                                        <MenuItem value={'auditiva'}>
-                                            Auditiva
-                                        </MenuItem> 
-                                        <MenuItem value={'visual'}>
-                                            Visual
+                                        <MenuItem value={'noS'}>
+                                            No
                                         </MenuItem> 
                                     </Select>
                                 </FormControl>
-                        </Col>
-                </Row>
-                <Row>
-                     <Col xs={6} className="separate">
-                                <FormControl variant="outlined" id='FControl'>
-                                        <InputLabel> ¿Usa lentes? </InputLabel>
-                                        <Select value={glasses} onChange={this.handleChange} name="glasses">
-                                            <MenuItem value=''>
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={'yesL'}>
-                                                Si
-                                            </MenuItem>
-                                            <MenuItem value={'noL'}>
-                                                No
-                                            </MenuItem> 
-                                        </Select>
-                                    </FormControl>
-                        </Col>
-                        <Col xs={6} className="separate">
-                                <FormControl variant="outlined" id='FControl'>
-                                        <InputLabel> ¿Fuma? </InputLabel>
-                                        <Select value={smokes} onChange={this.handleChange} name="smokes">
-                                            <MenuItem value=''>
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={'yesS'}>
-                                                Si
-                                            </MenuItem>
-                                            <MenuItem value={'noS'}>
-                                                No
-                                            </MenuItem> 
-                                        </Select>
-                                    </FormControl>
-                         </Col>
-                </Row>
-                <Row>
-                        <Col xs={6} className="separate">
-                                <FormControl variant="outlined" id='FControl'>
-                                            <InputLabel> Lateralidad </InputLabel>
-                                            <Select value={laterality} onChange={this.handleChange} name="laterality">
-                                                <MenuItem value=''>
-                                                    <em>None</em>
-                                                </MenuItem>
-                                                <MenuItem value={'right'}>
-                                                    Diestro
-                                                </MenuItem>
-                                                <MenuItem value={'left'}>
-                                                    Zurdo
-                                                </MenuItem> 
-                                                <MenuItem value={'both'}>
-                                                    Ambos
-                                                </MenuItem>
-                                            </Select>
-                                        </FormControl>
-                         </Col>
+                            </Col>
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectsWidthShort">
+                                    <InputLabel> Lateralidad </InputLabel>
+                                    <Select value={laterality} onChange={this.handleChange} name="laterality">
+                                        <MenuItem value=''>
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'right'}>
+                                            Diestro
+                                        </MenuItem>
+                                        <MenuItem value={'left'}>
+                                            Zurdo
+                                        </MenuItem> 
+                                        <MenuItem value={'both'}>
+                                            Ambos
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Col>
+                        </Row>
+                    </Col>
                 </Row>
             </Grid>
         );

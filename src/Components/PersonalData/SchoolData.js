@@ -30,77 +30,92 @@ class SchoolData extends Component{
         return(
             <Grid>
                 <Row between="xs">
-                        <Col xs={2}>
-                            <TextField
-                                    id="nameSchool"
-                                    label="Nombre"
-                                    name="nameSchool"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="municipalySchool"
-                                    label="Municipio"
-                                    name="municipalySchool"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="estateSchool"
-                                    label="Estado"
-                                    name="estateSchool"
-                                    margin="normal"
-                                    variant="outlined"
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4}>
+                                <TextField
+                                        id="nameSchool"
+                                        label="Nombre"
+                                        name="nameSchool"
+                                        margin="normal"
+                                        variant="outlined"
                                 />   
-                        </Col>
-                    </Row>
-                    <Row between="xs">
-                        <Col xs={2}>
-                            <TextField
-                                    id="SecondaryKey"
-                                    label="Nombre de secundaria"
-                                    name="secondarykey"
-                                    autoComplete=" "
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <FormControl variant="outlined" id='FControl'>
-                                    <InputLabel>Tipo</InputLabel>
-                                    <Select value={tipeSchool} onChange={this.handleChange} name="tipeSchool">
-                                        <MenuItem value=''>
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={'etec'}>
-                                            Estatal tecnica
-                                        </MenuItem>
-                                        <MenuItem value={'egen'}>
-                                            Estatal general
-                                        </MenuItem>
-                                        <MenuItem value={'ftec'}>
-                                            Federal tecnica
-                                        </MenuItem>
-                                        <MenuItem value={'fgen'}>
-                                            Federal general
-                                        </MenuItem>
-                                        <MenuItem value={'ptec'}>
-                                            Publica tecnica
-                                        </MenuItem>
-                                        <MenuItem value={'pgen'}>
-                                            Publica general
-                                        </MenuItem>
-                                    </Select>
-                                </FormControl>
-                        </Col>
-                        <Col xs={2}>
-                            <FormControl variant="outlined" id='FControl'>
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="municipalySchool"
+                                        label="Municipio"
+                                        name="municipalySchool"
+                                        margin="normal"
+                                        variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="estateSchool"
+                                        label="Estado"
+                                        name="estateSchool"
+                                        margin="normal"
+                                        variant="outlined"
+                                    />   
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4}>
+                                <TextField
+                                        id="finishSchool"
+                                        label="Año de termino"
+                                        name="finishSchool"
+                                        margin="normal"
+                                        variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                        id="SecondaryKey"
+                                        label="Nombre de secundaria"
+                                        name="secondarykey"
+                                        autoComplete=" "
+                                        margin="normal"
+                                        variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={2} className="topSpace">
+                                <FormControl variant="outlined"  className="size">
+                                        <InputLabel>Tipo</InputLabel>
+                                        <Select value={""} onChange={this.handleChange} name="tipeSchool">
+                                            <MenuItem value=''>
+                                                <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={'etec'}>
+                                                Estatal tecnica
+                                            </MenuItem>
+                                            <MenuItem value={'egen'}>
+                                                Estatal general
+                                            </MenuItem>
+                                            <MenuItem value={'ftec'}>
+                                                Federal tecnica
+                                            </MenuItem>
+                                            <MenuItem value={'fgen'}>
+                                                Federal general
+                                            </MenuItem>
+                                            <MenuItem value={'ptec'}>
+                                                Publica tecnica
+                                            </MenuItem>
+                                            <MenuItem value={'pgen'}>
+                                                Publica general
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                            </Col>
+                            <Col xs={2} className="topSpace">
+                                <FormControl variant="outlined"  className="size">
                                     <InputLabel> Regimen </InputLabel>
-                                    <Select value={regime} onChange={this.handleChange} name="regime">
+                                    <Select value={""} onChange={this.handleChange} name="regime">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
@@ -112,17 +127,10 @@ class SchoolData extends Component{
                                         </MenuItem> 
                                     </Select>
                                 </FormControl>
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                    id="finishSchool"
-                                    label="Año de termino"
-                                    name="finishSchool"
-                                    margin="normal"
-                                    variant="outlined"
-                            />   
-                        </Col>
-                    </Row>                    
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>                    
             </Grid>
         );
     }

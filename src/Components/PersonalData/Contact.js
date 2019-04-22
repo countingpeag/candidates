@@ -6,37 +6,40 @@ class Contact extends Component{
     render(){
         return(
             <Grid>  
-                 <Row between="xs">
-                        <Col xs={2}>
-                            <TextField
-                                id="phoneP"
-                                label="Telefono particular"
-                                name="honeP"
-                                margin="normal"
-                                variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                id="cellPhone"
-                                label="Telefono Celular"
-                                name="cellPhone"
-                                margin="normal"
-                                variant="outlined"
-                            />   
-                        </Col>
-                        <Col xs={2}>
-                            <TextField
-                                id="email"
-                                label="Correo Electronico"
-                                name="email"
-                                margin="normal"
-                                variant="outlined"
-                            />   
-                        </Col>
-                    </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4}>
+                                <TextField
+                                    id="phoneP"
+                                    label="Telefono particular"
+                                    name="honeP"
+                                    margin="normal"
+                                    variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                    id="cellPhone"
+                                    label="Telefono Celular"
+                                    name="cellPhone"
+                                    margin="normal"
+                                    variant="outlined"
+                                />   
+                            </Col>
+                            <Col xs={4}>
+                                <TextField
+                                    id="email"
+                                    label="Correo Electronico"
+                                    name="email"
+                                    margin="normal"
+                                    variant="outlined"
+                                />   
+                            </Col>
+                        </Row>
+                    </Col>        
+                </Row>
             </Grid>
-
         );
     }
 }

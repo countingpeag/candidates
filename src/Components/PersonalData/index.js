@@ -62,7 +62,6 @@ class PersonalForm extends Component{
                         <SchoolData/>  
                     </Col>
                 </Row>
-                
             </Grid>
         );
          

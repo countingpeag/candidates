@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid} from 'react-flexbox-grid';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import '../Styles/InicioStyles.css';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -62,7 +62,7 @@ class Inicio extends Component {
         const steps = getSteps();
         const { activeStep } = this.state;
         return(
-            <Grid className="boxShadow">
+          <Grid className="boxShadow">
             <Stepper activeStep={activeStep} alternativeLabel>
               {steps.map(label => (
                 <Step key={label}>
@@ -72,13 +72,20 @@ class Inicio extends Component {
             </Stepper>
             <div>
               {this.state.activeStep === steps.length ? (
-                <div>
-                  <Typography >Haz completado el registro</Typography>
-                  <Button onClick={this.handleReset}>Nuevo Registro</Button>
-                
-                </div>
+                <Row>
+                  <Col xs={12}>
+                    <Row center="xs">
+                      <Col xs={12}>
+                        <Typography >Haz completado el registro exitosamente</Typography>
+                      </Col>
+                      <Col xs={12} className="newCandidate">
+                        <Button variant="outlined" color="primary" onClick={this.handleReset}>Nuevo Registro</Button>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
               ) : (
-                <div >
+                <div>
                   <Typography>
                     {getStepContent(activeStep)}
                   </Typography>
@@ -90,7 +97,7 @@ class Inicio extends Component {
                       Regresar
                     </Button>
                     <Button variant="contained" color="primary" onClick={this.handleNext}>
-                      {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente  '}
+                      {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
                     </Button>
                   </div>
                 </div>

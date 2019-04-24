@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import HealthForm from '../Components/Health';
 import Preferences from './Preferences';
 import PersonalForm from './PersonalData';
-import ActualCity from './PersonalData/ActualCity';
 
 function getSteps() {
     return ['Informacion Personal', 'Salud', 'Socioeconomico','Preferencias Escolares'];
@@ -86,9 +85,9 @@ class Inicio extends Component {
                 </Row>
               ) : (
                 <div>
-                  <Typography>
-                    {getStepContent(activeStep)}
-                  </Typography>
+                    {
+                      getStepContent(activeStep)
+                    }
                   <div className="next">
                     <Button
                       disabled={activeStep === 0}

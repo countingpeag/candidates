@@ -25,15 +25,15 @@ class HealtFormSelect extends Component{
             this.setState({disease:value});
             else if(name==="disability")
                 this.setState({disability:value});
-                else if(name=="glasses")
+                else if(name==="glasses")
                     this.setState({glasses:value})
-                    else if(name=="smokes")
+                    else if(name==="smokes")
                         this.setState({smokes:value});
-                        else if(name=="laterality")
+                        else if(name==="laterality")
                             this.setState({laterality:value})
     }
     render(){      
-        const { disease,disability,glasses,smokes,laterality } = this.state;
+        const { glasses,smokes,laterality } = this.state;
         return(
             <Grid>
                 <Row>

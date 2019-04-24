@@ -26,7 +26,7 @@ class SchoolData extends Component{
     }
 
     render(){   
-        const { tipeSchool,regime } = this.state;
+        
         return(
             <Grid>
                 <Row between="xs">

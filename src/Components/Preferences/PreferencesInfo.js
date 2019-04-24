@@ -25,7 +25,7 @@ class PreferencesInfo extends Component {
             this.setState({scholarship:value});
             else if(name==="turn")
                 this.setState({turn:value});
-                else if(name=="info")
+                else if(name==="info")
                     this.setState({info:value})
     }
     render(){

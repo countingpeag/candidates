@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
-import { Grid } from '@material-ui/core';
-import { Row, Col } from 'react-flexbox-grid';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import '../../Styles/PersonalFormStyles.css';
 import PersonalData from './PersonalData';
 import BirthPlace from './BirthPlace';
@@ -13,7 +12,7 @@ class PersonalForm extends Component{
 
     render(){
         return(
-            <Grid >
+            <Grid>
                 <Row>
                    <h2>Datos Personales</h2>
                 </Row>

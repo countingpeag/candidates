@@ -27,7 +27,6 @@ class PersonalData extends Component{
     }
 
     render(){
-        const { civilStatus,sex } = this.state;
         return(
             <Grid>
                 <Row>

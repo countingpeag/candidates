@@ -3,6 +3,17 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import TextField from '@material-ui/core/TextField';
 
 class Contact extends Component{
+    constructor(){
+        super();
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
+    }
+
     render(){
         return(
             <Grid>  
@@ -13,9 +24,10 @@ class Contact extends Component{
                                 <TextField
                                     id="phoneP"
                                     label="Telefono particular"
-                                    name="honeP"
+                                    name="phoneP"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -25,6 +37,7 @@ class Contact extends Component{
                                     name="cellPhone"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -34,6 +47,7 @@ class Contact extends Component{
                                     name="email"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                         </Row>

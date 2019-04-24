@@ -3,6 +3,17 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import TextField from '@material-ui/core/TextField';
 
 class ActualCity extends Component{
+    constructor(){
+        super();
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
+    }
+
     render (){
         return(
             <Grid>
@@ -13,27 +24,30 @@ class ActualCity extends Component{
                                 <TextField
                                     id="street"
                                     label="Calle y Numero"
-                                    name="street"
+                                    name="streetC"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
                                 <TextField
                                     id="colony"
                                     label="Colonia"
-                                    name="colony"
+                                    name="colonyC"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
                                 <TextField
-                                    id="cp"
+                                    id="zp"
                                     label="Codigo Postal"
-                                    name="cp"
+                                    name="zpC"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                         </Row>
@@ -44,29 +58,32 @@ class ActualCity extends Component{
                             <Row center="xs">
                                 <Col xs={4}>
                                     <TextField
-                                        id="localityac"
+                                        id="localityc"
                                         label="Localidad"
-                                        name="localityac"
+                                        name="localityC"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                     />   
                                 </Col>
                                 <Col xs={4}>
                                     <TextField
-                                        id="municipalyac"
+                                        id="municipality"
                                         label="Municipio"
-                                        name="municipalyac"
+                                        name="municipalityC"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                     />   
                                 </Col>
                                 <Col xs={4}>
                                     <TextField
-                                        id="stateac"
+                                        id="statec"
                                         label="Estado"
-                                        name="stateac"
+                                        name="stateC"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                     />   
                                 </Col>
                             </Row>

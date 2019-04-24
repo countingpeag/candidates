@@ -13,20 +13,21 @@ import PersonalForm from './PersonalData';
 function getSteps() {
     return ['Informacion Personal', 'Salud', 'Socioeconomico','Preferencias Escolares'];
   }
-  function getStepContent(stepIndex) {
-    switch (stepIndex) {
-      case 0:
-        return <PersonalForm/>
-      case 1:
-        return <HealthForm/>;
-      case 2:
-        return 'Tercer Componente';
-      case 3:
-        return <Preferences />;
-      default:
-        return 'Unknown stepIndex';
-    }
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return <PersonalForm/>
+    case 1:
+      return <HealthForm/>;
+    case 2:
+      return 'Tercer Componente';
+    case 3:
+      return <Preferences />;
+    default:
+      return 'Unknown stepIndex';
   }
+}
 
 class Inicio extends Component { 
 
@@ -38,6 +39,7 @@ class Inicio extends Component {
         this.handleNext=this.handleNext.bind(this);
         this.handleBack=this.handleBack.bind(this);
         this.handleReset=this.handleReset.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleNext = () => {
         this.setState(state => ({
@@ -45,17 +47,22 @@ class Inicio extends Component {
         }));
       };
     
-      handleBack = () => {
-        this.setState(state => ({
-          activeStep: state.activeStep - 1,
-        }));
-      };
-    
-      handleReset = () => {
-        this.setState({
-          activeStep: 0,
-        });
-      };
+    handleBack = () => {
+      this.setState(state => ({
+        activeStep: state.activeStep - 1,
+      }));
+    };
+  
+    handleReset = () => {
+      this.setState({
+        activeStep: 0,
+      });
+    };
+
+    handleSubmit(){
+      console.log("Sent");
+      this.handleNext();
+    }
     
     render(){
         const steps = getSteps();
@@ -95,7 +102,7 @@ class Inicio extends Component {
                     >
                       Regresar
                     </Button>
-                    <Button variant="contained" color="primary" onClick={this.handleNext}>
+                    <Button variant="contained" color="primary" onClick={activeStep === 3 ? this.handleSubmit : this.handleNext}>
                       {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
                     </Button>
                   </div>

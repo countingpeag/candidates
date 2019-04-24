@@ -3,6 +3,17 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import TextField from '@material-ui/core/TextField';
 
 class Parents extends Component{
+    constructor(){
+        super();
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
+    }
+
     render(){
         return(
             <Grid>
@@ -16,6 +27,7 @@ class Parents extends Component{
                                         name="NameMom"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -25,6 +37,7 @@ class Parents extends Component{
                                         name="ocupationMom"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -34,6 +47,7 @@ class Parents extends Component{
                                         name="phoneMom"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                     />   
                             </Col>
                         </Row>
@@ -49,6 +63,7 @@ class Parents extends Component{
                                         name="nameDad"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -58,6 +73,7 @@ class Parents extends Component{
                                         name="ocupationDad"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -67,6 +83,7 @@ class Parents extends Component{
                                         name="phoneDad"
                                         margin="normal"
                                         variant="outlined"
+                                        onChange={this.handleChange}
                                     />   
                             </Col>
                         </Row>

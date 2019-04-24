@@ -9,24 +9,17 @@ import InputLabel from '@material-ui/core/InputLabel';
 class SchoolData extends Component{
     constructor(){
         super();
-        this.state = {
-            tipeSchool: '',
-            regime:'',
-        };
         this.handleChange = this.handleChange.bind(this);
-      }
+    }
 
-    handleChange(event) {
-        const {value, name} = event.target;
-
-        if(name==="tipeSchool")
-            this.setState({tipeSchool:value});
-        else if(name==="regime")
-            this.setState({regime:value});
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
     }
 
     render(){   
-        
+        const { candidateSchoolType, candidateSchoolRegime } = this.props.state;
         return(
             <Grid>
                 <Row between="xs">
@@ -34,30 +27,33 @@ class SchoolData extends Component{
                         <Row center="xs">
                             <Col xs={4}>
                                 <TextField
-                                        id="nameSchool"
-                                        label="Nombre"
-                                        name="nameSchool"
-                                        margin="normal"
-                                        variant="outlined"
+                                    id="nameSchool"
+                                    label="Nombre"
+                                    name="nameSchool"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
                                 <TextField
-                                        id="municipalySchool"
-                                        label="Municipio"
-                                        name="municipalySchool"
-                                        margin="normal"
-                                        variant="outlined"
+                                    id="municipalitySchool"
+                                    label="Municipio"
+                                    name="municipalitySchool"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
                                 <TextField
-                                        id="estateSchool"
-                                        label="Estado"
-                                        name="estateSchool"
-                                        margin="normal"
-                                        variant="outlined"
-                                    />   
+                                    id="stateSchool"
+                                    label="Estado"
+                                    name="stateSchool"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                />   
                             </Col>
                         </Row>
                     </Col>
@@ -67,55 +63,57 @@ class SchoolData extends Component{
                         <Row center="xs">
                             <Col xs={4}>
                                 <TextField
-                                        id="finishSchool"
-                                        label="Año de termino"
-                                        name="finishSchool"
-                                        margin="normal"
-                                        variant="outlined"
+                                    id="finishSchool"
+                                    label="Año de termino"
+                                    name="finishSchool"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={4}>
                                 <TextField
-                                        id="SecondaryKey"
-                                        label="Nombre de secundaria"
-                                        name="secondarykey"
-                                        autoComplete=" "
-                                        margin="normal"
-                                        variant="outlined"
+                                    id="SecondaryKey"
+                                    label="Clave de la secundaria"
+                                    name="secondarykey"
+                                    autoComplete=" "
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
                                 />   
                             </Col>
                             <Col xs={2} className="topSpace">
                                 <FormControl variant="outlined"  className="size">
-                                        <InputLabel>Tipo</InputLabel>
-                                        <Select value={""} onChange={this.handleChange} name="tipeSchool">
-                                            <MenuItem value=''>
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={'etec'}>
-                                                Estatal tecnica
-                                            </MenuItem>
-                                            <MenuItem value={'egen'}>
-                                                Estatal general
-                                            </MenuItem>
-                                            <MenuItem value={'ftec'}>
-                                                Federal tecnica
-                                            </MenuItem>
-                                            <MenuItem value={'fgen'}>
-                                                Federal general
-                                            </MenuItem>
-                                            <MenuItem value={'ptec'}>
-                                                Publica tecnica
-                                            </MenuItem>
-                                            <MenuItem value={'pgen'}>
-                                                Publica general
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
+                                    <InputLabel>Tipo</InputLabel>
+                                    <Select value={candidateSchoolType} onChange={this.handleChange} name="typeSchool">
+                                        <MenuItem value=''>
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'Estatal tecnica'}>
+                                            Estatal tecnica
+                                        </MenuItem>
+                                        <MenuItem value={'Estatal general'}>
+                                            Estatal general
+                                        </MenuItem>
+                                        <MenuItem value={'Federal tecnica'}>
+                                            Federal tecnica
+                                        </MenuItem>
+                                        <MenuItem value={'Federal general'}>
+                                            Federal general
+                                        </MenuItem>
+                                        <MenuItem value={'Publica tecnica'}>
+                                            Publica tecnica
+                                        </MenuItem>
+                                        <MenuItem value={'Publica general'}>
+                                            Publica general
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
                             </Col>
                             <Col xs={2} className="topSpace">
                                 <FormControl variant="outlined"  className="size">
                                     <InputLabel> Regimen </InputLabel>
-                                    <Select value={""} onChange={this.handleChange} name="regime">
+                                    <Select value={candidateSchoolRegime} onChange={this.handleChange} name="regime">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>

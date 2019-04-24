@@ -10,23 +10,17 @@ class PersonalData extends Component{
 
     constructor(){
         super();
-        this.state = {
-            civilStatus: '',
-            sex:'',
-        };
         this.handleChange = this.handleChange.bind(this);
       }
 
-    handleChange(event) {
-        const {value, name} = event.target;
-
-        if(name==="civilStatus")
-            this.setState({civilStatus:value});
-        else if(name==="sex")
-            this.setState({sex:value});
+    handleChange(event){
+        const { handleState } = this.props;
+        const { name, value } = event.target;
+        handleState( name, value );
     }
 
     render(){
+        const { candidateCivilStatus, candidateGenre } = this.props.state;
         return(
             <Grid>
                 <Row>
@@ -40,24 +34,27 @@ class PersonalData extends Component{
                                 autoComplete="name"
                                 margin="normal"
                                 variant="outlined"
+                                onChange={this.handleChange}
                             />
                             </Col>                    
                             <Col xs={6} md={4} >
                                 <TextField
-                                    id="LastNamep"
+                                    id="LastNameP"
                                     label="Apellido Paterno"
-                                    name="LastNamep"
+                                    name="LastNameP"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col>
                             <Col xs={6} md={4}>
                                 <TextField
-                                    id="LastNamem"
+                                    id="LastNameM"
                                     label="Apellido Materno"
-                                    name="LastNamem"
+                                    name="LastNameM"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col>
                         </Row>
@@ -73,13 +70,16 @@ class PersonalData extends Component{
                                     name="age"
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col>
                             <Col xs={12} md={4} className="topSpace">
                                 <TextField
                                     id="date"
+                                    name="date"
                                     label="Fecha de nacimeinto"
-                                    type="date"                          
+                                    type="date"    
+                                    onChange={this.handleChange}                      
                                     InputLabelProps={{
                                     shrink: true,
                                     }}
@@ -88,7 +88,7 @@ class PersonalData extends Component{
                             <Col xs={2} className="topSpace">
                                 <FormControl variant="outlined" className="size">
                                         <InputLabel>Estado Civil</InputLabel>
-                                        <Select value={""} onChange={this.handleChange} name="civilStatus">
+                                        <Select value={candidateCivilStatus} onChange={this.handleChange} name="civilStatus">
                                             <MenuItem value=''>
                                                 <em>None</em>
                                             </MenuItem>
@@ -107,7 +107,7 @@ class PersonalData extends Component{
                             <Col xs={2} className="topSpace">
                                 <FormControl variant="outlined" className="size">
                                     <InputLabel>Sexo</InputLabel>
-                                    <Select onChange={this.handleChange} value={""} name="sex">
+                                    <Select value={candidateGenre} onChange={this.handleChange} name="genre">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>

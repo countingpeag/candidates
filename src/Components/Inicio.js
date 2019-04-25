@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import '../Styles/InicioStyles.css';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -10,6 +9,7 @@ import HealthForm from '../Components/Health';
 import Preferences from './Preferences';
 import PersonalForm from './PersonalData';
 import Economy from './Economy';
+import '../Styles/InicioStyles.css';
 
 function getSteps() {
     return ['Informacion Personal', 'Salud', 'Socioeconomico','Preferencias Escolares'];

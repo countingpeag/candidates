@@ -9,27 +9,17 @@ import '../../Styles/StylesPreferences.css';
 class PreferencesInfo extends Component {
     constructor(){
         super();
-        this.state = {
-            scholarship: '',
-            turn:'',
-            info:'',
-            
-        };
         this.handleChange = this.handleChange.bind(this);
-      }
-
-    handleChange(event) {
-        const {value, name} = event.target;
-
-        if(name==="scholarship")
-            this.setState({scholarship:value});
-            else if(name==="turn")
-                this.setState({turn:value});
-                else if(name==="info")
-                    this.setState({info:value})
     }
+
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
+    }
+
     render(){
-        const { scholarship,turn,info } = this.state;
+        const { preferencesScholarshipFlag, preferencesShiftWished, preferencesWayToKnow } = this.props.state;
         return(
             <Grid>
                 <Row> 
@@ -38,14 +28,14 @@ class PreferencesInfo extends Component {
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Beca PROSPERA? </InputLabel>
-                                    <Select value={scholarship} onChange={this.handleChange} name="scholarship" >
+                                    <Select value={preferencesScholarshipFlag} onChange={this.handleChange} name="scholarship" >
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'yesE'}>
+                                        <MenuItem value={'1'}>
                                             Si
                                         </MenuItem>
-                                        <MenuItem value={'noE'}>
+                                        <MenuItem value={'0'}>
                                             No
                                         </MenuItem> 
                                     </Select>
@@ -54,7 +44,7 @@ class PreferencesInfo extends Component {
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel>Turno deseado </InputLabel>
-                                    <Select value={turn} onChange={this.handleChange} name="turn">
+                                    <Select value={preferencesShiftWished} onChange={this.handleChange} name="shift">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
@@ -70,15 +60,15 @@ class PreferencesInfo extends Component {
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Como se entero? </InputLabel>
-                                    <Select value={info} onChange={this.handleChange} name="info">
+                                    <Select value={preferencesWayToKnow} onChange={this.handleChange} name="info">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
                                         <MenuItem value={'family'}>
-                                        <em> Familiares/Amigos</em>
+                                        <em>Familiares/Amigos</em>
                                         </MenuItem>
                                         <MenuItem value={'internet'}>
-                                        Internet
+                                            Internet
                                         </MenuItem> 
                                         <MenuItem value={'visit'}>
                                             Visita a Secundaria

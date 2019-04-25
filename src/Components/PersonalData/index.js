@@ -7,6 +7,7 @@ import ActualCity from './ActualCity';
 import Contact from './Contact';
 import Parents from './Parents';
 import SchoolData from './SchoolData';
+import Button from '@material-ui/core/Button';
 
 class PersonalForm extends Component{
 
@@ -51,7 +52,6 @@ class PersonalForm extends Component{
     }
 
     handleChange(name, value){
-        console.log(name , "--", value);
         if(name==="name")
             this.setState({candidateName:value});
         else if(name==="LastNameP")
@@ -120,7 +120,7 @@ class PersonalForm extends Component{
     }
 
     render(){
-        console.log(this.state)
+        const { index, handleNext, handleBack } = this.props;
         return(
             <Grid>
                 <Row>
@@ -171,9 +171,19 @@ class PersonalForm extends Component{
                         <SchoolData handleState={this.handleChange} state={this.state}/>  
                     </Col>
                 </Row>
+                <Row>
+                    <div className="next">
+                        <Button disabled={index === 0} onClick={handleBack}>
+                            Regresar
+                        </Button>
+                        <Button variant="contained" color="primary" onClick={() => handleNext(this.state, "personalData")}>
+                            Siguiente
+                        </Button>
+                    </div>
+                </Row>
             </Grid>
         );
-         
     }
 }
+
 export default PersonalForm;

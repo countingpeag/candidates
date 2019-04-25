@@ -8,32 +8,17 @@ import InputLabel from '@material-ui/core/InputLabel';
 class HealtFormSelect extends Component{
     constructor(){
         super();
-        this.state = {
-            disease: '',
-            disability:'',
-            glasses:'',
-            smokes:'',
-            laterality:'',
-        };
         this.handleChange = this.handleChange.bind(this);
-      }
-
-    handleChange(event) {
-        const {value, name} = event.target;
-
-        if(name==="disease")
-            this.setState({disease:value});
-            else if(name==="disability")
-                this.setState({disability:value});
-                else if(name==="glasses")
-                    this.setState({glasses:value})
-                    else if(name==="smokes")
-                        this.setState({smokes:value});
-                        else if(name==="laterality")
-                            this.setState({laterality:value})
     }
+
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
+    }
+
     render(){      
-        const { glasses,smokes,laterality } = this.state;
+        const { healthGlassesFlag, healthSmokingFlag, healthLaterality } = this.props.state;
         return(
             <Grid>
                 <Row>
@@ -42,14 +27,14 @@ class HealtFormSelect extends Component{
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthShort">
                                     <InputLabel> ¿Usa lentes? </InputLabel>
-                                    <Select value={glasses} onChange={this.handleChange} name="glasses">
+                                    <Select value={healthGlassesFlag} onChange={this.handleChange} name="glasses">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'yesL'}>
+                                        <MenuItem value={'1'}>
                                             Si
                                         </MenuItem>
-                                        <MenuItem value={'noL'}>
+                                        <MenuItem value={'0'}>
                                             No
                                         </MenuItem> 
                                     </Select>
@@ -58,14 +43,14 @@ class HealtFormSelect extends Component{
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthShort">
                                     <InputLabel> ¿Fuma? </InputLabel>
-                                    <Select value={smokes} onChange={this.handleChange} name="smokes">
+                                    <Select value={healthSmokingFlag} onChange={this.handleChange} name="smokes">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'yesS'}>
+                                        <MenuItem value={'1'}>
                                             Si
                                         </MenuItem>
-                                        <MenuItem value={'noS'}>
+                                        <MenuItem value={'0'}>
                                             No
                                         </MenuItem> 
                                     </Select>
@@ -74,7 +59,7 @@ class HealtFormSelect extends Component{
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthShort">
                                     <InputLabel> Lateralidad </InputLabel>
-                                    <Select value={laterality} onChange={this.handleChange} name="laterality">
+                                    <Select value={healthLaterality} onChange={this.handleChange} name="laterality">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>

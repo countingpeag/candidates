@@ -7,7 +7,19 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 
 class HealthFormInfo extends Component{
+    constructor(){
+        super();
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event){
+        const { name, value } = event.target;
+        const { handleState } = this.props;
+        handleState(name, value);
+    }
+
     render(){      
+        const { healthIllnessFlag, healthDisability } = this.props.state;
         return(
             <Grid>
                 <Row>
@@ -21,6 +33,7 @@ class HealthFormInfo extends Component{
                                     autoComplete=""
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col>                    
                             <Col xs={4} >
@@ -31,6 +44,7 @@ class HealthFormInfo extends Component{
                                     autoComplete=""
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col>
                             <Col xs={4}>
@@ -41,6 +55,7 @@ class HealthFormInfo extends Component{
                                     autoComplete=""
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col>
                         </Row>
@@ -57,19 +72,20 @@ class HealthFormInfo extends Component{
                                     autoComplete=""
                                     margin="normal"
                                     variant="outlined"
+                                    onChange={this.handleChange}
                                 />
                             </Col> 
                             <Col xs={4} className="topSpace">
                             <FormControl variant="outlined" className="selectsWidthLarge">
                                 <InputLabel> ¿Padece alguna enfermedad? </InputLabel>
-                                <Select value={""} onChange={this.handleChange} name="disease" >
+                                <Select value={healthIllnessFlag} onChange={this.handleChange} name="disease" >
                                     <MenuItem value=''>
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={'yesE'}>
+                                    <MenuItem value={'1'}>
                                         Si
                                     </MenuItem>
-                                    <MenuItem value={'noE'}>
+                                    <MenuItem value={'0'}>
                                         No
                                     </MenuItem> 
                                 </Select>
@@ -78,11 +94,11 @@ class HealthFormInfo extends Component{
                             <Col xs={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthLarge">
                                     <InputLabel> ¿Padece alguna discapacidad? </InputLabel>
-                                    <Select value={""} onChange={this.handleChange} name="disability">
+                                    <Select value={healthDisability} onChange={this.handleChange} name="disability">
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'nod'}>
+                                        <MenuItem value={'no'}>
                                             No
                                         </MenuItem>
                                         <MenuItem value={'motriz'}>

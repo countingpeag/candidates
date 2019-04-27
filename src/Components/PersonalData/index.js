@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import '../../Styles/PersonalFormStyles.css';
 import PersonalData from './PersonalData';
 import BirthPlace from './BirthPlace';
 import ActualCity from './ActualCity';
@@ -8,6 +7,7 @@ import Contact from './Contact';
 import Parents from './Parents';
 import SchoolData from './SchoolData';
 import Button from '@material-ui/core/Button';
+import '../../Styles/PersonalFormStyles.css';
 
 class PersonalForm extends Component{
 
@@ -116,7 +116,6 @@ class PersonalForm extends Component{
             this.setState({candidateSchoolType:value});
         else if(name==="regime")
             this.setState({candidateSchoolRegime:value});
-        
     }
 
     render(){

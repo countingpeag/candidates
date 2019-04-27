@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import { Grid } from '@material-ui/core';
-import { Row, Col } from 'react-flexbox-grid';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 
 
@@ -18,6 +18,7 @@ class BirthPlace extends Component{
     }
 
     render(){
+        const { personalData } = this.props;
         return(
             <Grid>
                 <Row>
@@ -32,6 +33,7 @@ class BirthPlace extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateMunicipalityBorn}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -43,6 +45,7 @@ class BirthPlace extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateLocalityBorn}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -54,6 +57,7 @@ class BirthPlace extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateStateBorn}
                                 />   
                             </Col>
                         </Row>
@@ -63,4 +67,9 @@ class BirthPlace extends Component{
         );
     }
 }
-export default BirthPlace;
+
+const mapStateToProps = state => ({
+    personalData: state.personalData
+});
+
+export default connect(mapStateToProps, null)(BirthPlace);

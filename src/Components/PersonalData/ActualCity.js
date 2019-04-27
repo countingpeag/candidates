@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 
 class ActualCity extends Component{
@@ -15,6 +16,7 @@ class ActualCity extends Component{
     }
 
     render (){
+        const { personalData } = this.props;
         return(
             <Grid>
                 <Row>
@@ -28,6 +30,7 @@ class ActualCity extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateCurrentStreet}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -38,6 +41,7 @@ class ActualCity extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateNeighborhood}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -48,6 +52,7 @@ class ActualCity extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateCurrentZipCode}
                                 />   
                             </Col>
                         </Row>
@@ -64,6 +69,7 @@ class ActualCity extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
+                                        value={personalData.candidateCurrentLocality}
                                     />   
                                 </Col>
                                 <Col xs={4}>
@@ -74,6 +80,7 @@ class ActualCity extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
+                                        value={personalData.candidateCurrentMunicipality}
                                     />   
                                 </Col>
                                 <Col xs={4}>
@@ -84,6 +91,7 @@ class ActualCity extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
+                                        value={personalData.candidateCurrentState}
                                     />   
                                 </Col>
                             </Row>
@@ -93,4 +101,9 @@ class ActualCity extends Component{
         );
     }
  }
- export default ActualCity;
+
+ const mapStateToProps = state => ({
+    personalData: state.personalData
+});
+
+ export default connect(mapStateToProps, null)(ActualCity);

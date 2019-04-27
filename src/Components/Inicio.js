@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { sentRegistryCandidate } from '../Actions';
+import { updatePeronsalData, updateHealth, updatePreferences } from '../Actions';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -51,10 +52,14 @@ class Inicio extends Component {
 
     handleNext = (state, obj) => {
         const { activeStep } = this.state;
-        if(obj==="personalData")
+        if(obj==="personalData"){
+          this.props.updatePersonalData(state);
           this.setState({activeStep: activeStep + 1, personalData: state});
-        else if(obj==="health")
+        }
+        else if(obj==="health"){
           this.setState({activeStep: activeStep + 1, health: state});
+          this.props.updateHealth(state);
+        }
         else if(obj==="economy")
           this.setState({activeStep: activeStep + 1, economy: state});
       };
@@ -158,7 +163,10 @@ class Inicio extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  sendRegitry: value => dispatch(sentRegistryCandidate(value))
+  sendRegitry: value => dispatch(sentRegistryCandidate(value)),
+  updatePersonalData: value => dispatch(updatePeronsalData(value)),
+  updateHealth: value => dispatch(updateHealth(value)),
+  updatePreferences: value => dispatch(updatePreferences(value))
 });
 
 export default connect(null, mapDispatchToProps)(Inicio);

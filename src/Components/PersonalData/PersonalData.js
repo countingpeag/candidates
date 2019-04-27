@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -21,21 +22,23 @@ class PersonalData extends Component{
 
     render(){
         const { candidateCivilStatus, candidateGenre } = this.props.state;
+        const { personalData } = this.props;
         return(
             <Grid>
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
                             <Col xs={6} md={4}>
-                            <TextField 
-                                id="Name"
-                                label="Nombre"
-                                name="name"
-                                autoComplete="name"
-                                margin="normal"
-                                variant="outlined"
-                                onChange={this.handleChange}
-                            />
+                                <TextField 
+                                    id="Name"
+                                    label="Nombre"
+                                    name="name"
+                                    autoComplete="name"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={personalData.candidateName}
+                                />
                             </Col>                    
                             <Col xs={6} md={4} >
                                 <TextField
@@ -45,6 +48,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateLastNameFather}
                                 />
                             </Col>
                             <Col xs={6} md={4}>
@@ -55,6 +59,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateLastNameMother}
                                 />
                             </Col>
                         </Row>
@@ -71,6 +76,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={personalData.candidateAge}
                                 />
                             </Col>
                             <Col xs={12} md={4} className="topSpace">
@@ -79,7 +85,8 @@ class PersonalData extends Component{
                                     name="date"
                                     label="Fecha de nacimeinto"
                                     type="date"    
-                                    onChange={this.handleChange}                      
+                                    onChange={this.handleChange} 
+                                    value={personalData.candidateBirthDate}                     
                                     InputLabelProps={{
                                     shrink: true,
                                     }}
@@ -134,4 +141,9 @@ class PersonalData extends Component{
         );
     }
 }
-export default PersonalData;
+
+const mapStateToProps = state => ({
+    personalData: state.personalData
+});
+
+export default connect(mapStateToProps, null)(PersonalData);

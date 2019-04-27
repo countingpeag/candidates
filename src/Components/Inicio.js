@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { sentRegistryCandidate } from '../Actions';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -9,6 +10,7 @@ import HealthForm from '../Components/Health';
 import Preferences from './Preferences';
 import PersonalForm from './PersonalData';
 import Economy from './Economy';
+import { connect } from 'react-redux';
 import '../Styles/InicioStyles.css';
 
 function getSteps() {
@@ -111,15 +113,14 @@ class Inicio extends Component {
         economy: economy,
       };
 
-      console.log("Sent", candidate);
       const { activeStep } = this.state;
       this.setState({activeStep: activeStep + 1, preferences: state});
+      this.props.sendRegitry(candidate);
     }
     
     render(){
         const steps = getSteps();
         const { activeStep } = this.state;
-        console.log(this.state, "INICIO");
         return(
           <Grid className="boxShadow">
             <Stepper activeStep={activeStep} alternativeLabel>
@@ -155,4 +156,9 @@ class Inicio extends Component {
         );        
     }
 }
-export default Inicio;
+
+const mapDispatchToProps = dispatch => ({
+  sendRegitry: value => dispatch(sentRegistryCandidate(value))
+});
+
+export default connect(null, mapDispatchToProps)(Inicio);

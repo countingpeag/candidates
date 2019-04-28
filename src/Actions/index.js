@@ -43,3 +43,11 @@ export const updatePreferences = payload => {
         dispatch(savePreferences(payload));
     };
 };
+
+export const resetCandidateObject = payload => {
+    return dispatch => {
+        dispatch(savePersonalData(payload));
+        dispatch(saveHealth(payload));
+        dispatch(savePreferences(payload));
+    };
+};

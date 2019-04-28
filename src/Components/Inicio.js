@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { sentRegistryCandidate } from '../Actions';
-import { updatePeronsalData, updateHealth, updatePreferences } from '../Actions';
+import { updatePeronsalData, updateHealth, updatePreferences, resetCandidateObject } from '../Actions';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -71,9 +71,8 @@ class Inicio extends Component {
     };
   
     handleReset = () => {
-      this.setState({
-        activeStep: 0,
-      });
+      this.props.resetCandidateObject({});
+      this.setState({activeStep: 0});
     };
 
     handleSubmit(state){
@@ -166,7 +165,8 @@ const mapDispatchToProps = dispatch => ({
   sendRegitry: value => dispatch(sentRegistryCandidate(value)),
   updatePersonalData: value => dispatch(updatePeronsalData(value)),
   updateHealth: value => dispatch(updateHealth(value)),
-  updatePreferences: value => dispatch(updatePreferences(value))
+  updatePreferences: value => dispatch(updatePreferences(value)),
+  resetCandidateObject: value => dispatch(resetCandidateObject(value))
 });
 
 export default connect(null, mapDispatchToProps)(Inicio);

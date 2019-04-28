@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import PersonalData from './PersonalData';
 import BirthPlace from './BirthPlace';
 import ActualCity from './ActualCity';
@@ -118,6 +119,10 @@ class PersonalForm extends Component{
             this.setState({candidateSchoolRegime:value});
     }
 
+    componentDidMount(){
+        this.setState(this.props.personalData)
+    }
+
     render(){
         const { index, handleNext, handleBack } = this.props;
         return(
@@ -135,7 +140,7 @@ class PersonalForm extends Component{
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <BirthPlace handleState={this.handleChange}/>
+                        <BirthPlace handleState={this.handleChange} state={this.state}/>
                     </Col>
                 </Row>
                 <Row >
@@ -143,7 +148,7 @@ class PersonalForm extends Component{
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <ActualCity handleState={this.handleChange}/>  
+                        <ActualCity handleState={this.handleChange} state={this.state}/>  
                     </Col>
                 </Row>
                 <Row >
@@ -151,7 +156,7 @@ class PersonalForm extends Component{
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <Contact handleState={this.handleChange}/>  
+                        <Contact handleState={this.handleChange} state={this.state}/>  
                     </Col>
                 </Row>
                 <Row >
@@ -159,7 +164,7 @@ class PersonalForm extends Component{
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <Parents handleState={this.handleChange}/>  
+                        <Parents handleState={this.handleChange} state={this.state}/>  
                     </Col>
                 </Row>
                 <Row >
@@ -185,4 +190,8 @@ class PersonalForm extends Component{
     }
 }
 
-export default PersonalForm;
+const mapStateToProps = state => ({
+    personalData: state.personalData
+});
+
+export default connect(mapStateToProps, null)(PersonalForm);

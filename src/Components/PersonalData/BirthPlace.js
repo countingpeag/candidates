@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 
 
@@ -18,7 +17,7 @@ class BirthPlace extends Component{
     }
 
     render(){
-        const { personalData } = this.props;
+        const { state } = this.props;
         return(
             <Grid>
                 <Row>
@@ -33,7 +32,7 @@ class BirthPlace extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateMunicipalityBorn}
+                                    value={state.candidateMunicipalityBorn}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -45,7 +44,7 @@ class BirthPlace extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateLocalityBorn}
+                                    value={state.candidateLocalityBorn}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -57,7 +56,7 @@ class BirthPlace extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateStateBorn}
+                                    value={state.candidateStateBorn}
                                 />   
                             </Col>
                         </Row>
@@ -68,8 +67,4 @@ class BirthPlace extends Component{
     }
 }
 
-const mapStateToProps = state => ({
-    personalData: state.personalData
-});
-
-export default connect(mapStateToProps, null)(BirthPlace);
+export default BirthPlace;

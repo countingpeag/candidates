@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -22,7 +21,7 @@ class PersonalData extends Component{
 
     render(){
         const { candidateCivilStatus, candidateGenre } = this.props.state;
-        const { personalData } = this.props;
+        const { state } = this.props;
         return(
             <Grid>
                 <Row>
@@ -37,7 +36,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateName}
+                                    value={state.candidateName}
                                 />
                             </Col>                    
                             <Col xs={6} md={4} >
@@ -48,7 +47,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateLastNameFather}
+                                    value={state.candidateLastNameFather}
                                 />
                             </Col>
                             <Col xs={6} md={4}>
@@ -59,7 +58,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateLastNameMother}
+                                    value={state.candidateLastNameMother}
                                 />
                             </Col>
                         </Row>
@@ -76,7 +75,7 @@ class PersonalData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateAge}
+                                    value={state.candidateAge}
                                 />
                             </Col>
                             <Col xs={12} md={4} className="topSpace">
@@ -86,7 +85,7 @@ class PersonalData extends Component{
                                     label="Fecha de nacimeinto"
                                     type="date"    
                                     onChange={this.handleChange} 
-                                    value={personalData.candidateBirthDate}                     
+                                    value={state.candidateBirthDate}                     
                                     InputLabelProps={{
                                     shrink: true,
                                     }}
@@ -142,8 +141,4 @@ class PersonalData extends Component{
     }
 }
 
-const mapStateToProps = state => ({
-    personalData: state.personalData
-});
-
-export default connect(mapStateToProps, null)(PersonalData);
+export default PersonalData;

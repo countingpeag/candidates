@@ -20,6 +20,7 @@ class HealthFormInfo extends Component{
 
     render(){      
         const { healthIllnessFlag, healthDisability } = this.props.state;
+        const { state } = this.props;
         return(
             <Grid>
                 <Row>
@@ -34,6 +35,7 @@ class HealthFormInfo extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={state.insuranceNumber}
                                 />
                             </Col>                    
                             <Col xs={4} >
@@ -45,6 +47,7 @@ class HealthFormInfo extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={state.healthCandidateHeight}
                                 />
                             </Col>
                             <Col xs={4}>
@@ -56,6 +59,7 @@ class HealthFormInfo extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={state.healthCandidateWeight}
                                 />
                             </Col>
                         </Row>
@@ -73,6 +77,7 @@ class HealthFormInfo extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
+                                    value={state.healthCandidateBloodType}
                                 />
                             </Col> 
                             <Col xs={4} className="topSpace">

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -21,7 +20,7 @@ class SchoolData extends Component{
 
     render(){   
         const { candidateSchoolType, candidateSchoolRegime } = this.props.state;
-        const { personalData } = this.props;
+        const { state } = this.props;
         return(
             <Grid>
                 <Row between="xs">
@@ -35,7 +34,7 @@ class SchoolData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateMiddleSchool}
+                                    value={state.candidateMiddleSchool}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -46,7 +45,7 @@ class SchoolData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateMunicipalitySchool}
+                                    value={state.candidateMunicipalitySchool}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -57,7 +56,7 @@ class SchoolData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateStateSchool}
+                                    value={state.candidateStateSchool}
                                 />   
                             </Col>
                         </Row>
@@ -74,7 +73,7 @@ class SchoolData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateEndDate}
+                                    value={state.candidateEndDate}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -86,7 +85,7 @@ class SchoolData extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateSchoolKey}
+                                    value={state.candidateSchoolKey}
                                 />   
                             </Col>
                             <Col xs={2} className="topSpace">
@@ -141,8 +140,4 @@ class SchoolData extends Component{
     }
 }
 
-const mapStateToProps = state => ({
-    personalData: state.personalData
-});
-
-export default connect(mapStateToProps, null)(SchoolData);
+export default SchoolData;

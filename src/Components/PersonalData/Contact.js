@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 
 class Contact extends Component{
@@ -16,7 +15,7 @@ class Contact extends Component{
     }
 
     render(){
-        const { personalData } = this.props;
+        const { state } = this.props;
         return(
             <Grid>  
                 <Row>
@@ -30,7 +29,7 @@ class Contact extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidatePersonalPhone}
+                                    value={state.candidatePersonalPhone}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -41,7 +40,7 @@ class Contact extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateCellPhone}
+                                    value={state.candidateCellPhone}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -52,7 +51,7 @@ class Contact extends Component{
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
-                                    value={personalData.candidateEmail}
+                                    value={state.candidateEmail}
                                 />   
                             </Col>
                         </Row>
@@ -63,8 +62,4 @@ class Contact extends Component{
     }
 }
 
-const mapStateToProps = state => ({
-    personalData: state.personalData
-});
-
-export default connect(mapStateToProps, null)(Contact); 
+export default Contact; 

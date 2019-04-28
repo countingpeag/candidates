@@ -11,6 +11,7 @@ const registryFailure = payload => ({type:REGISTRY_FAILURE, payload:payload});
 
 export const sentRegistryCandidate = payload => {
     return dispatch => {
+        console.log(payload, "SENT")
         dispatch(sendRegistry(payload));
     };
 };

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import { Grid } from '@material-ui/core';
-import { Row, Col } from 'react-flexbox-grid';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import HealthFormInfo from './HealthFormInfo';
 import HealthFormSelect from './HealthFormSelect';
@@ -46,6 +46,10 @@ class HealthForm extends Component{
             this.setState({healthLaterality:value});
     }
 
+    componentDidMount(){
+        this.setState(this.props.health)
+    }
+
     render(){
         const { index, handleNext, handleBack } = this.props;
         return(
@@ -74,4 +78,9 @@ class HealthForm extends Component{
         );
     }
 }
-export default HealthForm;
+
+const mapStateToProps = state => ({
+    health: state.health
+});
+
+export default connect(mapStateToProps, null)(HealthForm);

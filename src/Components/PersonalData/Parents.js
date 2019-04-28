@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 
 class Parents extends Component{
@@ -16,7 +15,7 @@ class Parents extends Component{
     }
 
     render(){
-        const { personalData } = this.props;
+        const { state } = this.props;
         return(
             <Grid>
                 <Row>
@@ -30,7 +29,7 @@ class Parents extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
-                                        value={personalData.candidateMotherName}
+                                        value={state.candidateMotherName}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -41,7 +40,7 @@ class Parents extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
-                                        value={personalData.candidateMotherOccupation}
+                                        value={state.candidateMotherOccupation}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -52,7 +51,7 @@ class Parents extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
-                                        value={personalData.candidateMotherPhone}
+                                        value={state.candidateMotherPhone}
                                     />   
                             </Col>
                         </Row>
@@ -69,7 +68,7 @@ class Parents extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
-                                        value={personalData.candidateFatherName}
+                                        value={state.candidateFatherName}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -80,7 +79,7 @@ class Parents extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
-                                        value={personalData.candidateFatherOccupation}
+                                        value={state.candidateFatherOccupation}
                                 />   
                             </Col>
                             <Col xs={4}>
@@ -91,7 +90,7 @@ class Parents extends Component{
                                         margin="normal"
                                         variant="outlined"
                                         onChange={this.handleChange}
-                                        value={personalData.candidateFatherPhone}
+                                        value={state.candidateFatherPhone}
                                     />   
                             </Col>
                         </Row>
@@ -102,8 +101,4 @@ class Parents extends Component{
     }
 }
 
-const mapStateToProps = state => ({
-    personalData: state.personalData
-});
-
-export default connect(mapStateToProps, null)(Parents);
+export default Parents;

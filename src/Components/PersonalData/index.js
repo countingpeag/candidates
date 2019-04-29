@@ -21,26 +21,26 @@ class PersonalForm extends Component{
             candidateBirthDate: '',
             candidateCivilStatus: '',
             candidateGenre: '',
-            candidateAge: '',
+            candidateAge: 0,
             candidateMunicipalityBorn: '',
             candidateLocalityBorn: '',
             candidateStateBorn: '',
             candidateCurrentStreet: '',
-            candidateCurrentHouseNumber: '',
+            candidateCurrentHouseNumber: 0,
             candidateNeighborhood: '',
-            candidateCurrentZipCode: '',
+            candidateCurrentZipCode: 0,
             candidateCurrentMunicipality: '',
             candidateCurrentLocality: '',
             candidateCurrentState: '',
-            candidateCellPhone: '',
-            candidatePersonalPhone: '',
+            candidateCellPhone: 0,
+            candidatePersonalPhone: 0,
             candidateEmail: '',
             candidateFatherName: '',
             candidateMotherName: '',
             candidateMotherOccupation: '',
             candidateFatherOccupation: '',
-            candidateMotherPhone: '',
-            candidateFatherPhone: '',
+            candidateMotherPhone: 0,
+            candidateFatherPhone: 0,
             candidateMiddleSchool: '',
             candidateMunicipalitySchool: '',
             candidateStateSchool: '',
@@ -59,8 +59,10 @@ class PersonalForm extends Component{
             this.setState({candidateLastNameFather:value});
         else if(name==="LastNameM")
             this.setState({candidateLastNameMother:value});
-        else if(name==="age")
-            this.setState({candidateAge:value});
+        else if(name==="age"){
+            let age = Number(value);
+            this.setState({candidateAge:age});
+        }
         else if(name==="date")
             this.setState({candidateBirthDate:value});
         else if(name==="civilStatus")
@@ -87,22 +89,28 @@ class PersonalForm extends Component{
             this.setState({candidateCurrentState:value});
         else if(name==="phoneP")
             this.setState({candidatePersonalPhone:value});
-        else if(name==="cellPhone")
-            this.setState({candidateCellPhone:value});
+        else if(name==="cellPhone"){
+            let cell = Number(value);
+            this.setState({candidateCellPhone:cell});
+        }       
         else if(name==="email")
             this.setState({candidateEmail:value});
         else if(name==="NameMom")
             this.setState({candidateMotherName:value});
         else if(name==="ocupationMom")
             this.setState({candidateMotherOccupation:value});
-        else if(name==="phoneMom")
-            this.setState({candidateMotherPhone:value});
+        else if(name==="phoneMom"){
+            let pcmom = Number(value);
+            this.setState({candidateMotherPhone:pcmom});
+        }
         else if(name==="nameDad")
             this.setState({candidateFatherName:value});
         else if(name==="ocupationDad")
             this.setState({candidateFatherOccupation:value});
-        else if(name==="phoneDad")
-            this.setState({candidateFatherPhone:value});
+        else if(name==="phoneDad"){
+            let pcdad = Number(value);
+            this.setState({candidateFatherPhone:pcdad});
+        }
         else if(name==="nameSchool")
             this.setState({candidateMiddleSchool:value});
         else if(name==="municipalitySchool")

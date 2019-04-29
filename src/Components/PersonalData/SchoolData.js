@@ -68,13 +68,15 @@ class SchoolData extends Component{
                             <Col xs={4}>
                                 <TextField
                                     id="finishSchool"
-                                    label="Año de termino"
                                     name="finishSchool"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                    value={state.candidateEndDate}
-                                />   
+                                    label="Año de termino"
+                                    type="date"    
+                                    onChange={this.handleChange} 
+                                    value={state.candidateEndDate}                     
+                                    InputLabelProps={{
+                                    shrink: true,
+                                    }}
+                                />  
                             </Col>
                             <Col xs={4}>
                                 <TextField

@@ -12,7 +12,7 @@ const registryFailure = payload => ({type:REGISTRY_FAILURE, payload:payload});
 export const sentRegistryCandidate = payload => {
     return dispatch => {
         dispatch(sendRegistry(payload));
-        axios.put("http://localhost:8080/nucleus/candidates", payload)
+        axios.post("http://localhost:8080/nucleus/candidates", payload)
         .then( ({data}) => {
             console.log(data);
         })

@@ -71,7 +71,7 @@ class Inicio extends Component {
     };
   
     handleReset = () => {
-      this.props.resetCandidateObject({});
+      //this.props.resetCandidateObject({});
       this.setState({activeStep: 0});
     };
 
@@ -119,6 +119,7 @@ class Inicio extends Component {
 
       const { activeStep } = this.state;
       this.setState({activeStep: activeStep + 1, preferences: state});
+      console.log(candidate)
       this.props.sendRegitry(candidate);
     }
     

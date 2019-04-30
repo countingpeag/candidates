@@ -21,38 +21,38 @@ class Parents extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
-                                        id="NameMom"
-                                        label="Nombre de la madre"
-                                        name="NameMom"
-                                        margin="normal"
-                                        variant="outlined"
-                                        onChange={this.handleChange}
-                                        value={state.candidateMotherName}
+                                    id="NameMom"
+                                    label="Nombre de la madre"
+                                    name="NameMom"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateMotherName}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
-                                        id="ocupationMom"
-                                        label="Ocupacion"
-                                        name="ocupationMom"
-                                        margin="normal"
-                                        variant="outlined"
-                                        onChange={this.handleChange}
-                                        value={state.candidateMotherOccupation}
+                                    id="ocupationMom"
+                                    label="Ocupacion"
+                                    name="ocupationMom"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateMotherOccupation}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
-                                        id="phoneMom"
-                                        label="Numero de telefono"
-                                        name="phoneMom"
-                                        margin="normal"
-                                        variant="outlined"
-                                        onChange={this.handleChange}
-                                        value={state.candidateMotherPhone}
-                                    />   
+                                    id="phoneMom"
+                                    label="Numero de telefono"
+                                    name="phoneMom"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateMotherPhone}
+                                />   
                             </Col>
                         </Row>
                     </Col>
@@ -60,38 +60,38 @@ class Parents extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
-                                        id="nameDad"
-                                        label="Nombre del padre"
-                                        name="nameDad"
-                                        margin="normal"
-                                        variant="outlined"
-                                        onChange={this.handleChange}
-                                        value={state.candidateFatherName}
+                                    id="nameDad"
+                                    label="Nombre del padre"
+                                    name="nameDad"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateFatherName}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
-                                        id="ocupationDad"
-                                        label="Ocupacion"
-                                        name="ocupationDad"
-                                        margin="normal"
-                                        variant="outlined"
-                                        onChange={this.handleChange}
-                                        value={state.candidateFatherOccupation}
+                                    id="ocupationDad"
+                                    label="Ocupacion"
+                                    name="ocupationDad"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateFatherOccupation}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
-                                        id="phoneDad"
-                                        label="Numero de telefono"
-                                        name="phoneDad"
-                                        margin="normal"
-                                        variant="outlined"
-                                        onChange={this.handleChange}
-                                        value={state.candidateFatherPhone}
-                                    />   
+                                    id="phoneDad"
+                                    label="Numero de telefono"
+                                    name="phoneDad"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateFatherPhone}
+                                />   
                             </Col>
                         </Row>
                     </Col>

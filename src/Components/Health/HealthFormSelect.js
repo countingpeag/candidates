@@ -24,7 +24,7 @@ class HealtFormSelect extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthLarge">
                                     <InputLabel>Tipo de sangre</InputLabel>
                                     <Select value={healthCandidateBloodType} onChange={this.handleChange} name="blood">
@@ -58,7 +58,7 @@ class HealtFormSelect extends Component{
                                     </Select>
                                 </FormControl>
                             </Col> 
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                             <FormControl variant="outlined" className="selectsWidthLarge">
                                 <InputLabel> ¿Padece alguna enfermedad? </InputLabel>
                                 <Select value={healthIllnessFlag} onChange={this.handleChange} name="disease" >
@@ -74,7 +74,7 @@ class HealtFormSelect extends Component{
                                 </Select>
                             </FormControl>
                             </Col>
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthLarge">
                                     <InputLabel> ¿Padece alguna discapacidad? </InputLabel>
                                     <Select value={healthDisability} onChange={this.handleChange} name="disability">
@@ -102,7 +102,7 @@ class HealtFormSelect extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthShort">
                                     <InputLabel> ¿Usa lentes? </InputLabel>
                                     <Select value={healthGlassesFlag} onChange={this.handleChange} name="glasses">
@@ -118,7 +118,7 @@ class HealtFormSelect extends Component{
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthShort">
                                     <InputLabel> ¿Fuma? </InputLabel>
                                     <Select value={healthSmokingFlag} onChange={this.handleChange} name="smokes">
@@ -134,7 +134,7 @@ class HealtFormSelect extends Component{
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectsWidthShort">
                                     <InputLabel> Lateralidad </InputLabel>
                                     <Select value={healthLaterality} onChange={this.handleChange} name="laterality">

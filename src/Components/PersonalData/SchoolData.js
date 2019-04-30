@@ -26,7 +26,7 @@ class SchoolData extends Component{
                 <Row between="xs">
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="nameSchool"
                                     label="Nombre"
@@ -37,7 +37,7 @@ class SchoolData extends Component{
                                     value={state.candidateMiddleSchool}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="municipalitySchool"
                                     label="Municipio"
@@ -48,7 +48,7 @@ class SchoolData extends Component{
                                     value={state.candidateMunicipalitySchool}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="stateSchool"
                                     label="Estado"
@@ -65,7 +65,7 @@ class SchoolData extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <TextField
                                     id="finishSchool"
                                     name="finishSchool"
@@ -78,7 +78,7 @@ class SchoolData extends Component{
                                     }}
                                 />  
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="SecondaryKey"
                                     label="Clave de la secundaria"
@@ -90,7 +90,7 @@ class SchoolData extends Component{
                                     value={state.candidateSchoolKey}
                                 />   
                             </Col>
-                            <Col xs={2} className="topSpace">
+                            <Col xs={6} md={2} className="topSpace">
                                 <FormControl variant="outlined"  className="size">
                                     <InputLabel>Tipo</InputLabel>
                                     <Select value={candidateSchoolType} onChange={this.handleChange} name="typeSchool">
@@ -118,7 +118,7 @@ class SchoolData extends Component{
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={2} className="topSpace">
+                            <Col xs={6} md={2} className="topSpace">
                                 <FormControl variant="outlined"  className="size">
                                     <InputLabel> Regimen </InputLabel>
                                     <Select value={candidateSchoolRegime} onChange={this.handleChange} name="regime">

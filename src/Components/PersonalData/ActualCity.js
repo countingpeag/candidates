@@ -21,7 +21,7 @@ class ActualCity extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="street"
                                     label="Calle y Numero"
@@ -32,7 +32,7 @@ class ActualCity extends Component{
                                     value={state.candidateCurrentStreet}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="colony"
                                     label="Colonia"
@@ -43,7 +43,7 @@ class ActualCity extends Component{
                                     value={state.candidateNeighborhood}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="zp"
                                     label="Codigo Postal"
@@ -60,7 +60,7 @@ class ActualCity extends Component{
                     <Row>
                         <Col xs={12}>
                             <Row center="xs">
-                                <Col xs={4}>
+                                <Col xs={6} md={4}>
                                     <TextField
                                         id="localityc"
                                         label="Localidad"
@@ -71,7 +71,7 @@ class ActualCity extends Component{
                                         value={state.candidateCurrentLocality}
                                     />   
                                 </Col>
-                                <Col xs={4}>
+                                <Col xs={6} md={4}>
                                     <TextField
                                         id="municipality"
                                         label="Municipio"
@@ -82,7 +82,7 @@ class ActualCity extends Component{
                                         value={state.candidateCurrentMunicipality}
                                     />   
                                 </Col>
-                                <Col xs={4}>
+                                <Col xs={6} md={4}>
                                     <TextField
                                         id="statec"
                                         label="Estado"

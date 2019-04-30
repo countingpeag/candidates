@@ -21,7 +21,7 @@ class Contact extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="phoneP"
                                     label="Telefono particular"
@@ -32,7 +32,7 @@ class Contact extends Component{
                                     value={state.candidatePersonalPhone}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="cellPhone"
                                     label="Telefono Celular"
@@ -43,7 +43,7 @@ class Contact extends Component{
                                     value={state.candidateCellPhone}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="email"
                                     label="Correo Electronico"

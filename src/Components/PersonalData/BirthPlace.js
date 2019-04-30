@@ -23,7 +23,7 @@ class BirthPlace extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="Municipaly"
                                     label="Municipio"
@@ -35,7 +35,7 @@ class BirthPlace extends Component{
                                     value={state.candidateMunicipalityBorn}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="Location"
                                     label="Localidad"
@@ -47,7 +47,7 @@ class BirthPlace extends Component{
                                     value={state.candidateLocalityBorn}
                                 />   
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="State"
                                     label="Estado"

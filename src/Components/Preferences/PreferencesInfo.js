@@ -25,7 +25,7 @@ class PreferencesInfo extends Component {
                 <Row> 
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Beca PROSPERA? </InputLabel>
                                     <Select value={preferencesScholarshipFlag} onChange={this.handleChange} name="scholarship" >
@@ -41,7 +41,7 @@ class PreferencesInfo extends Component {
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel>Turno deseado </InputLabel>
                                     <Select value={preferencesShiftWished} onChange={this.handleChange} name="shift">
@@ -57,7 +57,7 @@ class PreferencesInfo extends Component {
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Como se entero? </InputLabel>
                                     <Select value={preferencesWayToKnow} onChange={this.handleChange} name="info">

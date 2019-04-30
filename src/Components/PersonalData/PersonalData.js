@@ -78,7 +78,7 @@ class PersonalData extends Component{
                                     value={state.candidateAge}
                                 />
                             </Col>
-                            <Col xs={12} md={4} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <TextField
                                     id="date"
                                     name="date"
@@ -91,7 +91,7 @@ class PersonalData extends Component{
                                     }}
                                 />
                             </Col>    
-                            <Col xs={2} className="topSpace">
+                            <Col xs={6} md={2} className="topSpace">
                                 <FormControl variant="outlined" className="size">
                                     <InputLabel>Estado Civil</InputLabel>
                                     <Select value={candidateCivilStatus} onChange={this.handleChange} name="civilStatus">
@@ -110,7 +110,7 @@ class PersonalData extends Component{
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={2} className="topSpace">
+                            <Col xs={6} md={2} className="topSpace">
                                 <FormControl variant="outlined" className="size">
                                     <InputLabel>Sexo</InputLabel>
                                     <Select value={candidateGenre} onChange={this.handleChange} name="genre">

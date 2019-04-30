@@ -21,7 +21,7 @@ class HealthFormInfo extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="Nss"
                                     label="Número seguro social"
@@ -33,7 +33,7 @@ class HealthFormInfo extends Component{
                                     value={state.insuranceNumber}
                                 />
                             </Col>                    
-                            <Col xs={4} >
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="Height"
                                     label="Estatura"
@@ -45,7 +45,7 @@ class HealthFormInfo extends Component{
                                     value={state.healthCandidateHeight}
                                 />
                             </Col>
-                            <Col xs={4}>
+                            <Col xs={6} md={4}>
                                 <TextField
                                     id="Weight"
                                     label="Peso"

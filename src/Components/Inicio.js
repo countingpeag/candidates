@@ -71,7 +71,7 @@ class Inicio extends Component {
     };
   
     handleReset = () => {
-      //this.props.resetCandidateObject({});
+      this.props.resetCandidateObject({});
       this.setState({activeStep: 0});
     };
 

@@ -14,10 +14,11 @@ export const sentRegistryCandidate = payload => {
         dispatch(sendRegistry(payload));
         axios.post("http://localhost:8080/nucleus/candidates", payload)
         .then( ({data}) => {
-            console.log(data);
+            dispatch(registrySuccess(data));
         })
         .catch((error)=>{
             console.log(error);
+            dispatch(registryFailure(true));
         })
     };
 };

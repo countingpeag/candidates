@@ -18,9 +18,87 @@ class HealtFormSelect extends Component{
     }
 
     render(){      
-        const { healthGlassesFlag, healthSmokingFlag, healthLaterality } = this.props.state;
+        const { healthGlassesFlag, healthSmokingFlag, healthLaterality, healthIllnessFlag, healthDisability, healthCandidateBloodType } = this.props.state;
         return(
             <Grid>
+                <Row>
+                    <Col xs={12}>
+                        <Row center="xs">
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectsWidthLarge">
+                                    <InputLabel>Tipo de sangre</InputLabel>
+                                    <Select value={healthCandidateBloodType} onChange={this.handleChange} name="blood">
+                                        <MenuItem value=''>
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'O+'}>
+                                            O+
+                                        </MenuItem>
+                                        <MenuItem value={'O-'}>
+                                            O-
+                                        </MenuItem>
+                                        <MenuItem value={'A+'}>
+                                            A+
+                                        </MenuItem>
+                                        <MenuItem value={'A-'}>
+                                            A-
+                                        </MenuItem>
+                                        <MenuItem value={'B+'}>
+                                            B+
+                                        </MenuItem>
+                                        <MenuItem value={'B-'}>
+                                            B-
+                                        </MenuItem>
+                                        <MenuItem value={'AB+'}>
+                                            AB+
+                                        </MenuItem>
+                                        <MenuItem value={'AB-'}>
+                                            AB-
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Col> 
+                            <Col xs={4} className="topSpace">
+                            <FormControl variant="outlined" className="selectsWidthLarge">
+                                <InputLabel> ¿Padece alguna enfermedad? </InputLabel>
+                                <Select value={healthIllnessFlag} onChange={this.handleChange} name="disease" >
+                                    <MenuItem value=''>
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={'1'}>
+                                        Si
+                                    </MenuItem>
+                                    <MenuItem value={'0'}>
+                                        No
+                                    </MenuItem> 
+                                </Select>
+                            </FormControl>
+                            </Col>
+                            <Col xs={4} className="topSpace">
+                                <FormControl variant="outlined" className="selectsWidthLarge">
+                                    <InputLabel> ¿Padece alguna discapacidad? </InputLabel>
+                                    <Select value={healthDisability} onChange={this.handleChange} name="disability">
+                                        <MenuItem value=''>
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'no'}>
+                                            No
+                                        </MenuItem>
+                                        <MenuItem value={'motriz'}>
+                                            Motriz
+                                        </MenuItem> 
+                                        <MenuItem value={'auditiva'}>
+                                            Auditiva
+                                        </MenuItem> 
+                                        <MenuItem value={'visual'}>
+                                            Visual
+                                        </MenuItem> 
+                                    </Select>
+                                </FormControl>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">

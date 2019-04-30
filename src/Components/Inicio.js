@@ -114,12 +114,11 @@ class Inicio extends Component {
 
         health: health,
         preference: state,
-        economy: economy,
+        economy: {salaryMonth:23000},
       };
 
       const { activeStep } = this.state;
       this.setState({activeStep: activeStep + 1, preferences: state});
-      console.log(candidate)
       this.props.sendRegitry(candidate);
     }
     

@@ -65,7 +65,7 @@ class SchoolData extends Component{
                 <Row>
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={4}>
+                            <Col xs={4} className="topSpace">
                                 <TextField
                                     id="finishSchool"
                                     name="finishSchool"

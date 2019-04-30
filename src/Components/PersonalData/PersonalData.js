@@ -93,22 +93,22 @@ class PersonalData extends Component{
                             </Col>    
                             <Col xs={2} className="topSpace">
                                 <FormControl variant="outlined" className="size">
-                                        <InputLabel>Estado Civil</InputLabel>
-                                        <Select value={candidateCivilStatus} onChange={this.handleChange} name="civilStatus">
-                                            <MenuItem value=''>
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={'single'}>
-                                                Soltero
-                                            </MenuItem>
-                                            <MenuItem value={'married'}>
-                                                Casado
-                                            </MenuItem>
-                                            <MenuItem value={'divorced'}>
-                                                Divorciado
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
+                                    <InputLabel>Estado Civil</InputLabel>
+                                    <Select value={candidateCivilStatus} onChange={this.handleChange} name="civilStatus">
+                                        <MenuItem value=''>
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={'single'}>
+                                            Soltero
+                                        </MenuItem>
+                                        <MenuItem value={'married'}>
+                                            Casado
+                                        </MenuItem>
+                                        <MenuItem value={'divorced'}>
+                                            Divorciado
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
                             </Col>
                             <Col xs={2} className="topSpace">
                                 <FormControl variant="outlined" className="size">

@@ -12,8 +12,8 @@ class HealthForm extends Component{
         super();
         this.state = {
             insuranceNumber: '',
-            healthCandidateHeight: 0.0,
-            healthCandidateWeight: 0.0,
+            healthCandidateHeight: '',
+            healthCandidateWeight: '',
             healthCandidateBloodType: '',
             healthIllnessFlag: '',
             healthDisability: '',

@@ -24,12 +24,23 @@ class ActualCity extends Component{
                             <Col xs={6} md={4}>
                                 <TextField
                                     id="street"
-                                    label="Calle y Numero"
+                                    label="Calle"
                                     name="streetC"
                                     margin="normal"
                                     variant="outlined"
                                     onChange={this.handleChange}
                                     value={state.candidateCurrentStreet}
+                                />   
+                            </Col>
+                            <Col xs={6} md={4}>
+                                <TextField
+                                    id="houseNumber"
+                                    label="Numero"
+                                    name="houseNumber"
+                                    margin="normal"
+                                    variant="outlined"
+                                    onChange={this.handleChange}
+                                    value={state.candidateCurrentHouseNumber}
                                 />   
                             </Col>
                             <Col xs={6} md={4}>
@@ -41,17 +52,6 @@ class ActualCity extends Component{
                                     variant="outlined"
                                     onChange={this.handleChange}
                                     value={state.candidateNeighborhood}
-                                />   
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <TextField
-                                    id="zp"
-                                    label="Codigo Postal"
-                                    name="zpC"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                    value={state.candidateCurrentZipCode}
                                 />   
                             </Col>
                         </Row>
@@ -93,6 +93,21 @@ class ActualCity extends Component{
                                         value={state.candidateCurrentState}
                                     />   
                                 </Col>
+                            </Row>
+                            <Row center="xs">
+                                <Col xs={6} md={4}>
+                                    <TextField
+                                        id="zp"
+                                        label="Codigo Postal"
+                                        name="zpC"
+                                        margin="normal"
+                                        variant="outlined"
+                                        onChange={this.handleChange}
+                                        value={state.candidateCurrentZipCode}
+                                    />   
+                                </Col>
+                                <Col xs={6} md={4}></Col>
+                                <Col xs={6} md={4}></Col>
                             </Row>
                         </Col>
                     </Row>

@@ -12,6 +12,7 @@ import Preferences from './Preferences';
 import PersonalForm from './PersonalData';
 import Economy from './Economy';
 import { connect } from 'react-redux';
+import Snackbar from '@material-ui/core/Snackbar';
 import '../Styles/InicioStyles.css';
 
 function getSteps() {
@@ -42,23 +43,42 @@ class Inicio extends Component {
             personalData: {},
             health: {},
             economy: {},
-            preferences: {}
+            preferences: {},
+            open: false
         }
         this.handleNext=this.handleNext.bind(this);
         this.handleBack=this.handleBack.bind(this);
         this.handleReset=this.handleReset.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     handleNext = (state, obj) => {
         const { activeStep } = this.state;
         if(obj==="personalData"){
-          this.props.updatePersonalData(state);
-          this.setState({activeStep: activeStep + 1, personalData: state});
+          if(state.candidateName!=='' && state.candidateLastNameFather!=='' && state.candidateLastNameMother!==''
+            && state.candidateBirthDate!=='' && state.candidateGenre!=='' && state.candidateAge!=='' && state.candidateCurrentZipCode!==''
+            && state.candidateCurrentMunicipality!=='' && state.candidateCurrentLocality!=='' && state.candidateCurrentState!==''
+            && state.candidateCellPhone!=='' && state.candidateEmail!=='' && state.candidateFatherName!==''
+            && state.candidateMotherName!=='' && state.candidateMotherPhone!=='' && state.candidateFatherPhone!==''
+            && state.candidateSchoolKey!=='')
+            {
+              this.props.updatePersonalData(state);
+              this.setState({activeStep: activeStep + 1, personalData: state});
+            }
+            else
+              this.setState({open:true});
         }
         else if(obj==="health"){
-          this.setState({activeStep: activeStep + 1, health: state});
-          this.props.updateHealth(state);
+          if(state.insuranceNumber!=='' && state.healthCandidateHeight!=='' &&  state.healthCandidateWeight!==''
+            && state.healthCandidateBloodType!=='' && state.healthIllnessFlag!=='' && state.healthDisability!==''
+            && state.healthGlassesFlag!=='' && state.healthSmokingFlag!=='' && state.healthLaterality!==''){
+              this.setState({activeStep: activeStep + 1, health: state});
+              this.props.updateHealth(state);
+            }
+            else{
+              this.setState({open:true});
+            }
         }
         else if(obj==="economy")
           this.setState({activeStep: activeStep + 1, economy: state});
@@ -75,56 +95,65 @@ class Inicio extends Component {
       this.setState({activeStep: 0});
     };
 
+    handleClose = () => {
+      this.setState({ open: false });
+    };
+
     handleSubmit(state){
       const { personalData, health, economy } = this.state;
-      let candidate = {
-        candidateName: personalData.candidateName,
-        candidateLastNameFather: personalData.candidateLastNameFather,
-        candidateLastNameMother: personalData.candidateLastNameMother,
-        candidateBirthDate: personalData.candidateBirthDate,
-        candidateCivilStatus: personalData.candidateCivilStatus,
-        candidateGenre: personalData.candidateGenre,
-        candidateAge: personalData.candidateAge,
-        candidateMunicipalityBorn: personalData.candidateMunicipalityBorn,
-        candidateLocalityBorn: personalData.candidateLocalityBorn,
-        candidateStateBorn: personalData.candidateStateBorn,
-        candidateCurrentStreet: personalData.candidateCurrentStreet,
-        candidateCurrentHouseNumber: personalData.candidateCurrentHouseNumber,
-        candidateNeighborhood: personalData.candidateNeighborhood,
-        candidateCurrentZipCode: personalData.candidateCurrentZipCode,
-        candidateCurrentMunicipality: personalData.candidateCurrentMunicipality,
-        candidateCurrentLocality: personalData.candidateCurrentLocality,
-        candidateCurrentState: personalData.candidateCurrentState,
-        candidateCellPhone: personalData.candidateCellPhone,
-        candidatePersonalPhone: personalData.candidatePersonalPhone,
-        candidateEmail: personalData.candidateEmail,
-        candidateFatherName: personalData.candidateFatherName,
-        candidateMotherName: personalData.candidateMotherName,
-        candidateMotherOccupation: personalData.candidateMotherOccupation,
-        candidateFatherOccupation: personalData.candidateFatherOccupation,
-        candidateMotherPhone: personalData.candidateMotherPhone,
-        candidateFatherPhone: personalData.candidateFatherPhone,
-        candidateMiddleSchool: personalData.candidateMiddleSchool,
-        candidateMunicipalitySchool: personalData.candidateMunicipalitySchool,
-        candidateStateSchool: personalData.candidateStateSchool,
-        candidateSchoolType: personalData.candidateSchoolType,
-        candidateSchoolRegime: personalData.candidateSchoolRegime,
-        candidateSchoolKey: personalData.candidateSchoolKey,
-        candidateEndDate: personalData.candidateEndDate,
 
-        health: health,
-        preference: state,
-        economy: {salaryMonth:23000},
-      };
+      if(state.preferencesScholarshipFlag!=='', state.preferencesShiftWished!=='' && state.preferencesWayToKnow!==''){
+        let candidate = {
+          candidateName: personalData.candidateName,
+          candidateLastNameFather: personalData.candidateLastNameFather,
+          candidateLastNameMother: personalData.candidateLastNameMother,
+          candidateBirthDate: personalData.candidateBirthDate,
+          candidateCivilStatus: personalData.candidateCivilStatus,
+          candidateGenre: personalData.candidateGenre,
+          candidateAge: personalData.candidateAge,
+          candidateMunicipalityBorn: personalData.candidateMunicipalityBorn,
+          candidateLocalityBorn: personalData.candidateLocalityBorn,
+          candidateStateBorn: personalData.candidateStateBorn,
+          candidateCurrentStreet: personalData.candidateCurrentStreet,
+          candidateCurrentHouseNumber: personalData.candidateCurrentHouseNumber,
+          candidateNeighborhood: personalData.candidateNeighborhood,
+          candidateCurrentZipCode: personalData.candidateCurrentZipCode,
+          candidateCurrentMunicipality: personalData.candidateCurrentMunicipality,
+          candidateCurrentLocality: personalData.candidateCurrentLocality,
+          candidateCurrentState: personalData.candidateCurrentState,
+          candidateCellPhone: personalData.candidateCellPhone,
+          candidatePersonalPhone: personalData.candidatePersonalPhone,
+          candidateEmail: personalData.candidateEmail,
+          candidateFatherName: personalData.candidateFatherName,
+          candidateMotherName: personalData.candidateMotherName,
+          candidateMotherOccupation: personalData.candidateMotherOccupation,
+          candidateFatherOccupation: personalData.candidateFatherOccupation,
+          candidateMotherPhone: personalData.candidateMotherPhone,
+          candidateFatherPhone: personalData.candidateFatherPhone,
+          candidateMiddleSchool: personalData.candidateMiddleSchool,
+          candidateMunicipalitySchool: personalData.candidateMunicipalitySchool,
+          candidateStateSchool: personalData.candidateStateSchool,
+          candidateSchoolType: personalData.candidateSchoolType,
+          candidateSchoolRegime: personalData.candidateSchoolRegime,
+          candidateSchoolKey: personalData.candidateSchoolKey,
+          candidateEndDate: personalData.candidateEndDate,
 
-      const { activeStep } = this.state;
-      this.setState({activeStep: activeStep + 1, preferences: state});
-      this.props.sendRegitry(candidate);
+          health: health,
+          preference: state,
+          economy: {salaryMonth:23000},
+        };
+
+        const { activeStep } = this.state;
+        this.setState({activeStep: activeStep + 1, preferences: state});
+        this.props.sendRegitry(candidate);
+      }
+      else
+        this.setState({open:true});
     }
     
     render(){
         const steps = getSteps();
-        const { activeStep } = this.state;
+        const { activeStep, open } = this.state;
         return(
           <Grid className="boxShadow">
             <Stepper activeStep={activeStep} alternativeLabel>
@@ -155,6 +184,17 @@ class Inicio extends Component {
                     }
                 </div>
               )}
+            </div>
+            <div>
+              <Snackbar
+                anchorOrigin={{ vertical:'top', horizontal: 'center'}}
+                open={open}
+                onClose={this.handleClose}
+                ContentProps={{
+                  'aria-describedby': 'message-id',
+                }}
+                message={<span id="message-id">Complete todos los campos vacios</span>}
+              />
             </div>
           </Grid>
         );        

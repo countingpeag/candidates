@@ -21,26 +21,26 @@ class PersonalForm extends Component{
             candidateBirthDate: '',
             candidateCivilStatus: '',
             candidateGenre: '',
-            candidateAge: 0,
+            candidateAge: '',
             candidateMunicipalityBorn: '',
             candidateLocalityBorn: '',
             candidateStateBorn: '',
             candidateCurrentStreet: '',
-            candidateCurrentHouseNumber: 0,
+            candidateCurrentHouseNumber: '',
             candidateNeighborhood: '',
-            candidateCurrentZipCode: 0,
+            candidateCurrentZipCode: '',
             candidateCurrentMunicipality: '',
             candidateCurrentLocality: '',
             candidateCurrentState: '',
-            candidateCellPhone: 0,
-            candidatePersonalPhone: 0,
+            candidateCellPhone: '',
+            candidatePersonalPhone: '',
             candidateEmail: '',
             candidateFatherName: '',
             candidateMotherName: '',
             candidateMotherOccupation: '',
             candidateFatherOccupation: '',
-            candidateMotherPhone: 0,
-            candidateFatherPhone: 0,
+            candidateMotherPhone: '',
+            candidateFatherPhone: '',
             candidateMiddleSchool: '',
             candidateMunicipalitySchool: '',
             candidateStateSchool: '',
@@ -77,6 +77,10 @@ class PersonalForm extends Component{
             this.setState({candidateStateBorn:value});
         else if(name==="streetC")
             this.setState({candidateCurrentStreet:value});
+        else if(name==="houseNumber"){
+            let number = Number(value);
+            this.setState({candidateCurrentHouseNumber:number});
+        }
         else if(name==="colonyC")
             this.setState({candidateNeighborhood:value});
         else if(name==="zpC")

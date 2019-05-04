@@ -25,13 +25,30 @@ class HealthForm extends Component{
         this.handleCHange = this.handleCHange.bind(this);
     }
 
+    numberValidation(value){
+        if(!isNaN(value)){
+            let number = Number(value);
+            return number;
+        }
+        else{
+            alert("Ingresa solo numeros");
+            return '';
+        }
+    }
+
     handleCHange(name, value){
         if(name==="nss")
             this.setState({insuranceNumber:value});
-        else if(name==="height")
-            this.setState({healthCandidateHeight:value});
-        else if(name==="weight")
-            this.setState({healthCandidateWeight:value});
+        else if(name==="height"){
+            let height = this.numberValidation(value);
+            if(height!=='')
+                this.setState({healthCandidateHeight:value});
+        }
+        else if(name==="weight"){
+            let weight = this.numberValidation(value);
+            if(weight!=='')
+                this.setState({healthCandidateWeight:value});
+        }
         else if(name==="blood")
             this.setState({healthCandidateBloodType:value});
         else if(name==="disease")

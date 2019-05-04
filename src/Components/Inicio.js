@@ -102,7 +102,7 @@ class Inicio extends Component {
     handleSubmit(state){
       const { personalData, health, economy } = this.state;
 
-      if(state.preferencesScholarshipFlag!=='', state.preferencesShiftWished!=='' && state.preferencesWayToKnow!==''){
+      if(state.preferencesScholarshipFlag!=='' && state.preferencesShiftWished!=='' && state.preferencesWayToKnow!==''){
         let candidate = {
           candidateName: personalData.candidateName,
           candidateLastNameFather: personalData.candidateLastNameFather,

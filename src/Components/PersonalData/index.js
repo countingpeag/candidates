@@ -52,6 +52,17 @@ class PersonalForm extends Component{
         this.handleChange = this.handleChange.bind(this);
     }
 
+    numberValidation(value){
+        if(!isNaN(value)){
+            let number = Number(value);
+            return number;
+        }
+        else{
+            alert("Ingresa solo numeros");
+            return '';
+        }
+    }
+
     handleChange(name, value){
         if(name==="name")
             this.setState({candidateName:value});
@@ -60,8 +71,9 @@ class PersonalForm extends Component{
         else if(name==="LastNameM")
             this.setState({candidateLastNameMother:value});
         else if(name==="age"){
-            let age = Number(value);
-            this.setState({candidateAge:age});
+            let age = this.numberValidation(value);
+            if(age!=='')
+                this.setState({candidateAge:age});
         }
         else if(name==="date")
             this.setState({candidateBirthDate:value});
@@ -78,24 +90,32 @@ class PersonalForm extends Component{
         else if(name==="streetC")
             this.setState({candidateCurrentStreet:value});
         else if(name==="houseNumber"){
-            let number = Number(value);
-            this.setState({candidateCurrentHouseNumber:number});
+            let number = this.numberValidation(value);
+            if(number!=='')
+                this.setState({candidateCurrentHouseNumber:number});
         }
         else if(name==="colonyC")
             this.setState({candidateNeighborhood:value});
-        else if(name==="zpC")
-            this.setState({candidateCurrentZipCode:value});
+        else if(name==="zpC"){
+            let zipcode = this.numberValidation(value);
+            if(zipcode!=='')
+                this.setState({candidateCurrentZipCode:zipcode});
+        }
         else if(name==="localityC")
             this.setState({candidateCurrentLocality:value});
         else if(name==="municipalityC")
             this.setState({candidateCurrentMunicipality:value});
         else if(name==="stateC")
             this.setState({candidateCurrentState:value});
-        else if(name==="phoneP")
-            this.setState({candidatePersonalPhone:value});
+        else if(name==="phoneP"){
+            let phone = this.numberValidation(value);
+            if(phone!=='')
+                this.setState({candidatePersonalPhone:value});
+        }
         else if(name==="cellPhone"){
-            let cell = Number(value);
-            this.setState({candidateCellPhone:cell});
+            let cell = this.numberValidation(value);
+            if(cell!=='')
+                this.setState({candidateCellPhone:cell});
         }       
         else if(name==="email")
             this.setState({candidateEmail:value});
@@ -104,16 +124,18 @@ class PersonalForm extends Component{
         else if(name==="ocupationMom")
             this.setState({candidateMotherOccupation:value});
         else if(name==="phoneMom"){
-            let pcmom = Number(value);
-            this.setState({candidateMotherPhone:pcmom});
+            let pcmom = this.numberValidation(value);
+            if(pcmom!=='')
+                this.setState({candidateMotherPhone:pcmom});
         }
         else if(name==="nameDad")
             this.setState({candidateFatherName:value});
         else if(name==="ocupationDad")
             this.setState({candidateFatherOccupation:value});
         else if(name==="phoneDad"){
-            let pcdad = Number(value);
-            this.setState({candidateFatherPhone:pcdad});
+            let pcdad = this.numberValidation(value);
+            if(pcdad!=='')
+                this.setState({candidateFatherPhone:pcdad});
         }
         else if(name==="nameSchool")
             this.setState({candidateMiddleSchool:value});

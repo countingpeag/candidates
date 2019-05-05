@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import PreferencesInfo from './PreferencesInfo';
 import SpecialtiesPreferences from './PreferencesSpecialties';
 import ProgressComponent from '../Util/CircularProgress';
+import '../../Styles/StylesPreferences.css';
 
 class Preferences extends Component{
 
@@ -31,6 +32,14 @@ class Preferences extends Component{
             this.setState({preferencesShiftWished:value});
         else if(name==="info")
             this.setState({preferencesWayToKnow:value});
+        else if(name==="option1")
+            this.setState({preferencesSpecialtyWhished1:value});
+        else if(name==="option2")
+            this.setState({preferencesSpecialtyWhished2:value});
+        else if(name==="option3")
+            this.setState({preferencesSpecialtyWhished3:value});
+        else if(name==="option4")
+            this.setState({preferencesSpecialtyWhished4:value});
     } 
 
     render(){
@@ -44,7 +53,7 @@ class Preferences extends Component{
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <SpecialtiesPreferences/>
+                        <SpecialtiesPreferences handleState={this.handleChange} state={this.state}/>
                     </Col>    
                 </Row>
                 <Row className="next">

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import PreferencesInfo from './PreferencesInfo';
-import PreferencesTable from './PreferencesTable';
+import SpecialtiesPreferences from './PreferencesSpecialties';
+import ProgressComponent from '../Util/CircularProgress';
 
 class Preferences extends Component{
 
@@ -32,7 +34,7 @@ class Preferences extends Component{
     } 
 
     render(){
-        const { index, handleSubmit, handleBack } = this.props;
+        const { index, handleSubmit, handleBack, registrySent } = this.props;
         return(
             <Grid>
                 <Row>
@@ -42,22 +44,29 @@ class Preferences extends Component{
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <PreferencesTable/>
+                        <SpecialtiesPreferences/>
                     </Col>    
                 </Row>
-                <Row>
-                    <div className="next">
-                        <Button disabled={index === 0} onClick={handleBack}>
+                <Row className="next">
+                    <Col>
+                    <   Button disabled={index === 0} onClick={handleBack}>
                             Regresar
                         </Button>
-                        <Button variant="contained" color="primary" onClick={() => handleSubmit(this.state)}>
+                    </Col>
+                    <Col className="progressComponent">
+                        <Button variant="contained" color="primary" onClick={() => handleSubmit(this.state)} disabled={registrySent}>
                             Terminar
                         </Button>
-                    </div>
+                        {registrySent && <ProgressComponent size={24} />}
+                    </Col>
                 </Row>
             </Grid>
         );
     }
 }
 
-export default Preferences;
+const mapStateToProps = state => ({
+    registrySent: state.registrySent
+});
+
+export default connect(mapStateToProps, null)(Preferences);

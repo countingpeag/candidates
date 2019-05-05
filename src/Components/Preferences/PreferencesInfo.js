@@ -47,11 +47,11 @@ class PreferencesInfo extends Component {
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'morning'}>
-                                            Mañana
+                                        <MenuItem value={'Matutino'}>
+                                            Matutino
                                         </MenuItem> 
-                                        <MenuItem value={'afternoon'}>
-                                            Tarde
+                                        <MenuItem value={'Vespertino'}>
+                                            Vespertino
                                         </MenuItem>
                                     </Select>
                                 </FormControl>
@@ -63,13 +63,13 @@ class PreferencesInfo extends Component {
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'family'}>
+                                        <MenuItem value={'Familiares/Amigos'}>
                                         <em>Familiares/Amigos</em>
                                         </MenuItem>
-                                        <MenuItem value={'internet'}>
+                                        <MenuItem value={'Internet'}>
                                             Internet
                                         </MenuItem> 
-                                        <MenuItem value={'visit'}>
+                                        <MenuItem value={'Visita'}>
                                             Visita a Secundaria
                                         </MenuItem> 
                                     </Select>

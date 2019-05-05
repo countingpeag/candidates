@@ -141,14 +141,14 @@ class HealtFormSelect extends Component{
                                         <MenuItem value=''>
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={'right'}>
+                                        <MenuItem value={'Diestro'}>
                                             Diestro
                                         </MenuItem>
-                                        <MenuItem value={'left'}>
+                                        <MenuItem value={'Zurdo'}>
                                             Zurdo
                                         </MenuItem> 
-                                        <MenuItem value={'both'}>
-                                            Ambos
+                                        <MenuItem value={'Ambidiestro'}>
+                                            Ambidiestro
                                         </MenuItem>
                                     </Select>
                                 </FormControl>

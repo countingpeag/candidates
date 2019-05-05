@@ -91,7 +91,7 @@ class Inicio extends Component {
     };
   
     handleReset = () => {
-      this.props.resetCandidateObject({});
+      //this.props.resetCandidateObject({});
       this.setState({activeStep: 0});
     };
 
@@ -137,6 +137,7 @@ class Inicio extends Component {
           candidateSchoolRegime: personalData.candidateSchoolRegime,
           candidateSchoolKey: personalData.candidateSchoolKey,
           candidateEndDate: personalData.candidateEndDate,
+          candidateScore: 0,
 
           health: health,
           preference: state,

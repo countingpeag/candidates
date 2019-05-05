@@ -1,3 +1,7 @@
 .selectWidth{
     width: 200px;
 }
+
+.progressComponent{
+    position: relative;
+}

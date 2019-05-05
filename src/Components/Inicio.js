@@ -143,12 +143,17 @@ class Inicio extends Component {
           economy: {salaryMonth:23000},
         };
 
-        const { activeStep } = this.state;
-        this.setState({activeStep: activeStep + 1, preferences: state});
+        this.props.updatePreferences(state);
         this.props.sendRegitry(candidate);
       }
       else
         this.setState({open:true});
+    }
+
+    componentWillReceiveProps(props){
+      const { activeStep } = this.state;
+      if(props.registrySuccess==="successful")
+        this.setState({activeStep: activeStep + 1});
     }
     
     render(){
@@ -209,4 +214,8 @@ const mapDispatchToProps = dispatch => ({
   resetCandidateObject: value => dispatch(resetCandidateObject(value))
 });
 
-export default connect(null, mapDispatchToProps)(Inicio);
+const mapStateToProps = state => ({
+  registrySuccess: state.registrySuccess
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Inicio);

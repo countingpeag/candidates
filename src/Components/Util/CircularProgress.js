@@ -1,6 +1,6 @@
-import React, { Component } from './node_modules/react';
-import CircularProgress from './node_modules/@material-ui/core/CircularProgress';
-import { withStyles } from './node_modules/@material-ui/core/styles';
+import React, { Component } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     buttonProgress: {

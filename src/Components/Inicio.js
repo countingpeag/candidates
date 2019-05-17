@@ -142,6 +142,7 @@ class Inicio extends Component {
           health: health,
           preference: state,
           economy: {salaryMonth:23000},
+          specialty: {specialityKeycode:1, specialityName:"None"}
         };
 
         this.props.updatePreferences(state);

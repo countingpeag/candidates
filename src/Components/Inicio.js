@@ -158,7 +158,7 @@ class Inicio extends Component {
             candidateSchoolKey: personalData.candidateSchoolKey,
             candidateEndDate: personalData.candidateEndDate,
             candidateScore: 0,
-            candidateLastupdate: new Date(),
+            candidateCreationDate: new Date(),
             
             health: health,
             economy: {salaryMonth:23000},

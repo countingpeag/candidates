@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { sentRegistryCandidate } from '../Actions';
-import { updatePeronsalData, updateHealth, updatePreferences, resetCandidateObject } from '../Actions';
+import { updatePeronsalData, updateHealth, updatePreferences, resetCandidateObject, sendRegistry, registrySuccess, registryFailure } from '../Actions';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -19,7 +19,7 @@ function getSteps() {
     return ['Informacion Personal', 'Salud', 'Socioeconomico','Preferencias Escolares'];
   }
 
-function getStepContent(stepIndex, steps, handleBack, handleNext, handleSubmit) {
+function getStepContent(stepIndex, steps, handleBack, handleNext, handleSubmit, dialogState, aceptDialog, closeDialog) {
   switch (stepIndex) {
     case 0:
       return <PersonalForm index={stepIndex} handleNext={handleNext} handleBack={handleBack}/>
@@ -28,7 +28,7 @@ function getStepContent(stepIndex, steps, handleBack, handleNext, handleSubmit) 
     case 2:
       return <Economy index={stepIndex} handleNext={handleNext} handleBack={handleBack}/>;
     case 3:
-      return <Preferences index={stepIndex} handleSubmit={handleSubmit} handleBack={handleBack}/>;
+      return <Preferences index={stepIndex} handleSubmit={handleSubmit} handleBack={handleBack} dialogState={dialogState} aceptDialog={aceptDialog} closeDialog={closeDialog}/>;
     default:
       return 'Unknown stepIndex';
   }
@@ -44,13 +44,17 @@ class Inicio extends Component {
             health: {},
             economy: {},
             preferences: {},
-            open: false
+            open: false,
+            openDialog: false,
+            submitData: false
         }
         this.handleNext=this.handleNext.bind(this);
         this.handleBack=this.handleBack.bind(this);
         this.handleReset=this.handleReset.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.aceptDialog = this.aceptDialog.bind(this);
+        this.closeDialog = this.closeDialog.bind(this);
     }
 
     handleNext = (state, obj) => {
@@ -87,67 +91,86 @@ class Inicio extends Component {
     handleBack = () => {
       this.setState(state => ({
         activeStep: state.activeStep - 1,
+        submitData: false
       }));
     };
   
+    //Revert all the velues as in the begining
     handleReset = () => {
       //this.props.resetCandidateObject({});
-      this.setState({activeStep: 0});
+      this.props.sendRegistryAction(false);
+      this.props.registrySuccessAction(false);
+      this.props.registryFailureAction(null);
+      this.setState({activeStep: 0, submitData: false});
+
     };
 
     handleClose = () => {
       this.setState({ open: false });
     };
 
+    aceptDialog(){
+      this.setState({openDialog:false, submitData:true});
+    }
+
+    closeDialog(){
+      this.setState({openDialog:false, submitData:false});
+    }
+
     handleSubmit(state){
-      const { personalData, health, economy } = this.state;
+      const { personalData, health, economy, submitData } = this.state;
 
-      if(state.preferencesScholarshipFlag!=='' && state.preferencesShiftWished!=='' && state.preferencesWayToKnow!==''){
-        let candidate = {
-          candidateName: personalData.candidateName,
-          candidateLastNameFather: personalData.candidateLastNameFather,
-          candidateLastNameMother: personalData.candidateLastNameMother,
-          candidateBirthDate: personalData.candidateBirthDate,
-          candidateCivilStatus: personalData.candidateCivilStatus,
-          candidateGenre: personalData.candidateGenre,
-          candidateAge: personalData.candidateAge,
-          candidateMunicipalityBorn: personalData.candidateMunicipalityBorn,
-          candidateLocalityBorn: personalData.candidateLocalityBorn,
-          candidateStateBorn: personalData.candidateStateBorn,
-          candidateCurrentStreet: personalData.candidateCurrentStreet,
-          candidateCurrentHouseNumber: personalData.candidateCurrentHouseNumber,
-          candidateNeighborhood: personalData.candidateNeighborhood,
-          candidateCurrentZipCode: personalData.candidateCurrentZipCode,
-          candidateCurrentMunicipality: personalData.candidateCurrentMunicipality,
-          candidateCurrentLocality: personalData.candidateCurrentLocality,
-          candidateCurrentState: personalData.candidateCurrentState,
-          candidateCellPhone: personalData.candidateCellPhone,
-          candidatePersonalPhone: personalData.candidatePersonalPhone,
-          candidateEmail: personalData.candidateEmail,
-          candidateFatherName: personalData.candidateFatherName,
-          candidateMotherName: personalData.candidateMotherName,
-          candidateMotherOccupation: personalData.candidateMotherOccupation,
-          candidateFatherOccupation: personalData.candidateFatherOccupation,
-          candidateMotherPhone: personalData.candidateMotherPhone,
-          candidateFatherPhone: personalData.candidateFatherPhone,
-          candidateMiddleSchool: personalData.candidateMiddleSchool,
-          candidateMunicipalitySchool: personalData.candidateMunicipalitySchool,
-          candidateStateSchool: personalData.candidateStateSchool,
-          candidateSchoolType: personalData.candidateSchoolType,
-          candidateSchoolRegime: personalData.candidateSchoolRegime,
-          candidateSchoolKey: personalData.candidateSchoolKey,
-          candidateEndDate: personalData.candidateEndDate,
-          candidateScore: 0,
-          candidateLastupdate: new Date(),
-          
-          health: health,
-          preference: state,
-          economy: {salaryMonth:23000},
-          specialty: {specialityKeycode:1, specialityName:"None"}
-        };
+      if(state.preferencesScholarshipFlag!=='' && state.preferencesShiftWished!=='' && state.preferencesWayToKnow!=='' && state.preferencesSpecialtyWhished1!==''){
+        
+        if(submitData===true){
+          let candidate = {
+            candidateName: personalData.candidateName,
+            candidateLastNameFather: personalData.candidateLastNameFather,
+            candidateLastNameMother: personalData.candidateLastNameMother,
+            candidateBirthDate: personalData.candidateBirthDate,
+            candidateCivilStatus: personalData.candidateCivilStatus,
+            candidateGenre: personalData.candidateGenre,
+            candidateAge: personalData.candidateAge,
+            candidateMunicipalityBorn: personalData.candidateMunicipalityBorn,
+            candidateLocalityBorn: personalData.candidateLocalityBorn,
+            candidateStateBorn: personalData.candidateStateBorn,
+            candidateCurrentStreet: personalData.candidateCurrentStreet,
+            candidateCurrentHouseNumber: personalData.candidateCurrentHouseNumber,
+            candidateNeighborhood: personalData.candidateNeighborhood,
+            candidateCurrentZipCode: personalData.candidateCurrentZipCode,
+            candidateCurrentMunicipality: personalData.candidateCurrentMunicipality,
+            candidateCurrentLocality: personalData.candidateCurrentLocality,
+            candidateCurrentState: personalData.candidateCurrentState,
+            candidateCellPhone: personalData.candidateCellPhone,
+            candidatePersonalPhone: personalData.candidatePersonalPhone,
+            candidateEmail: personalData.candidateEmail,
+            candidateFatherName: personalData.candidateFatherName,
+            candidateMotherName: personalData.candidateMotherName,
+            candidateMotherOccupation: personalData.candidateMotherOccupation,
+            candidateFatherOccupation: personalData.candidateFatherOccupation,
+            candidateMotherPhone: personalData.candidateMotherPhone,
+            candidateFatherPhone: personalData.candidateFatherPhone,
+            candidateMiddleSchool: personalData.candidateMiddleSchool,
+            candidateMunicipalitySchool: personalData.candidateMunicipalitySchool,
+            candidateStateSchool: personalData.candidateStateSchool,
+            candidateSchoolType: personalData.candidateSchoolType,
+            candidateSchoolRegime: personalData.candidateSchoolRegime,
+            candidateSchoolKey: personalData.candidateSchoolKey,
+            candidateEndDate: personalData.candidateEndDate,
+            candidateScore: 0,
+            candidateLastupdate: new Date(),
+            
+            health: health,
+            economy: {salaryMonth:23000},
+            preference: state,
+            specialty: {specialityKeycode:1, specialityName:"None"}
+          };
 
-        this.props.updatePreferences(state);
-        this.props.sendRegitry(candidate);
+          this.props.updatePreferences(state);
+          this.props.sendRegitry(candidate);
+        }
+        else
+          this.setState({openDialog:true});
       }
       else
         this.setState({open:true});
@@ -155,13 +178,14 @@ class Inicio extends Component {
 
     componentWillReceiveProps(props){
       const { activeStep } = this.state;
-      if(props.registrySuccess==="successful")
+      if( props.registryFailure!==true && props.registryFailure!==null && props.registrySuccess!==false)
         this.setState({activeStep: activeStep + 1});
     }
     
     render(){
         const steps = getSteps();
-        const { activeStep, open } = this.state;
+        const { activeStep, open, openDialog } = this.state;
+        const { registrySuccess } = this.props;
         return(
           <Grid className="boxShadow">
             <Stepper activeStep={activeStep} alternativeLabel>
@@ -177,7 +201,7 @@ class Inicio extends Component {
                   <Col xs={12}>
                     <Row center="xs">
                       <Col xs={12}>
-                        <Typography >Haz completado el registro exitosamente</Typography>
+                        <Typography >{registrySuccess==="successful"?"Haz completado el registro exitosamente.":"No se completo el registro, intente denuevo."}</Typography>
                       </Col>
                       <Col xs={12} className="newCandidate">
                         <Button variant="outlined" color="primary" onClick={this.handleReset}>Nuevo Registro</Button>
@@ -188,7 +212,7 @@ class Inicio extends Component {
               ) : (
                 <div>
                     {
-                      getStepContent(activeStep, steps, this.handleBack, this.handleNext, this.handleSubmit)
+                      getStepContent(activeStep, steps, this.handleBack, this.handleNext, this.handleSubmit, openDialog, this.aceptDialog, this.closeDialog)
                     }
                 </div>
               )}
@@ -214,11 +238,16 @@ const mapDispatchToProps = dispatch => ({
   updatePersonalData: value => dispatch(updatePeronsalData(value)),
   updateHealth: value => dispatch(updateHealth(value)),
   updatePreferences: value => dispatch(updatePreferences(value)),
-  resetCandidateObject: value => dispatch(resetCandidateObject(value))
+  resetCandidateObject: value => dispatch(resetCandidateObject(value)),
+  registryFailureAction: value => dispatch(registryFailure(value)),
+  sendRegistryAction: value => dispatch(sendRegistry(value)),
+  registrySuccessAction: value => dispatch(registrySuccess(value)),
+   
 });
 
 const mapStateToProps = state => ({
-  registrySuccess: state.registrySuccess
+  registrySuccess: state.registrySuccess,
+  registryFailure: state.registryFailure
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Inicio);

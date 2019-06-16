@@ -4,7 +4,7 @@ import reducers from '../Reducers';
 
 const initialState = {
     registrySuccess: false,
-    registryFailure: false,
+    registryFailure: null,
     registrySent: false
 };
 

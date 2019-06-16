@@ -5,9 +5,9 @@ export const SEND_REGISTRY_CANDIDATE = "SEND_REGISTRY_CANDIDATE";
 export const REGISTRY_SUCCESS = "REGISTRY_SUCCESS";
 export const REGISTRY_FAILURE = "REGISTRY_FAILURE";
 
-const sendRegistry = payload => ({type:SEND_REGISTRY_CANDIDATE, payload:payload});
-const registrySuccess = payload => ({type:REGISTRY_SUCCESS, payload:payload});
-const registryFailure = payload => ({type:REGISTRY_FAILURE, payload:payload});
+export const sendRegistry = payload => ({type:SEND_REGISTRY_CANDIDATE, payload:payload});
+export const registrySuccess = payload => ({type:REGISTRY_SUCCESS, payload:payload});
+export const registryFailure = payload => ({type:REGISTRY_FAILURE, payload:payload});
 
 export const sentRegistryCandidate = payload => {
     return dispatch => {
@@ -15,14 +15,15 @@ export const sentRegistryCandidate = payload => {
         axios.post("http://localhost:8080/nucleus/candidates", payload)
         .then( ({data}) => {
             dispatch(registrySuccess(data));
-            dispatch(registryFailure(false));
             dispatch(sendRegistry(false));
+            dispatch(registryFailure(false));
         })
         .catch((error)=>{
             console.log(error);
             dispatch(registryFailure(true));
             dispatch(registrySuccess(false));
             dispatch(sendRegistry(false));
+            alert("Hubo un problema con el servidor, porfavor intente mas tarde.")
         })
     };
 };

@@ -1,4 +1,4 @@
-import { UPDATE_PERSONAL_DATA, UPDATE_HEALTH, UPDATE_PREFERENCES } from '../Actions';
+import { UPDATE_PERSONAL_DATA, UPDATE_HEALTH, UPDATE_ECONOMY, UPDATE_PREFERENCES } from '../Actions';
 
 export const personalData = (state={}, action) => {
     switch(action.type){
@@ -17,6 +17,16 @@ export const health = (state={}, action) => {
             return state;
     }
 };
+
+export const economy = (state={}, action) => {
+    switch(action.type){
+        case UPDATE_ECONOMY:
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
 
 export const preferences = (state={}, action) => {
     switch(action.type){

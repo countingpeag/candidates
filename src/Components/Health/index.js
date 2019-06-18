@@ -64,7 +64,7 @@ class HealthForm extends Component{
     }
 
     componentDidMount(){
-        this.setState(this.props.health)
+        this.setState(this.props.health);
     }
 
     render(){

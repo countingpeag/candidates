@@ -3,6 +3,11 @@ h2{
     padding-left: 7%;
 }
 
+h3{
+    color: gray;
+    padding-left: 7%;
+}
+
 .size{
     width: 120px;
 }

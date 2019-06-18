@@ -31,10 +31,12 @@ export const sentRegistryCandidate = payload => {
 //Update candidate Data (State)
 export const UPDATE_PERSONAL_DATA = "UPDATE_PERSONAL_DATA";
 export const UPDATE_HEALTH = "UPDATE_HEALTH";
+export const UPDATE_ECONOMY = "UPDATE_ECONOMY";
 export const UPDATE_PREFERENCES = "UPDATE_PREFERENCES";
 
 const savePersonalData = payload => ({type:UPDATE_PERSONAL_DATA, payload:payload});
 const saveHealth = payload => ({type:UPDATE_HEALTH, payload:payload});
+const saveEconomy = payload => ({type:UPDATE_ECONOMY, payload:payload});
 const savePreferences = payload => ({type:UPDATE_PREFERENCES, payload:payload});
 
 export const updatePeronsalData = payload => {
@@ -49,6 +51,12 @@ export const updateHealth = payload => {
     };
 };
 
+export const updateEconomy = payload => {
+    return dispatch => {
+        dispatch(saveEconomy(payload));
+    };
+};
+
 export const updatePreferences = payload => {
     return dispatch => {
         dispatch(savePreferences(payload));
@@ -59,6 +67,7 @@ export const resetCandidateObject = payload => {
     return dispatch => {
         dispatch(savePersonalData(payload));
         dispatch(saveHealth(payload));
+        dispatch(saveEconomy(payload));
         dispatch(savePreferences(payload));
     };
 };

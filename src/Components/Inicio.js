@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { sentRegistryCandidate } from '../Actions';
-import { updatePeronsalData, updateHealth, updatePreferences, resetCandidateObject, sendRegistry, registrySuccess, registryFailure } from '../Actions';
+import { updatePeronsalData, updateHealth, updateEconomy, updatePreferences, resetCandidateObject, sendRegistry, registrySuccess, registryFailure } from '../Actions';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -84,8 +84,18 @@ class Inicio extends Component {
               this.setState({open:true});
             }
         }
-        else if(obj==="economy")
-          this.setState({activeStep: activeStep + 1, economy: state});
+        else if(obj==="economy"){
+          if(state.income!=='' && state.feeding!=='' && state.rent!=='' && state.light!=='' && state.gas!=='' &&
+          state.tuition!=='' && state.bills!=='' &&state.transport!=='' && state.clothing!=='' && state.othersOut!==''
+          && state.totalOut!=='' && state.father!=='' && state.mother!=='' && state.siblings!=='' && state.othersIn!==''
+          && state.totalIn!=='' && state.fixedIncome!=='' ){
+            this.setState({activeStep: activeStep + 1, economy: state});
+            this.props.updateEconomy(state);
+          }
+          else{
+            this.setState({open:true});
+          }
+        }
       };
     
     handleBack = () => {
@@ -161,7 +171,7 @@ class Inicio extends Component {
             candidateCreationDate: new Date(),
             
             health: health,
-            economy: {salaryMonth:23000},
+            economy: economy,
             preference: state,
             specialty: {specialityKeycode:1, specialityName:"None"}
           };
@@ -183,6 +193,7 @@ class Inicio extends Component {
     }
     
     render(){
+      console.log(this.state)
         const steps = getSteps();
         const { activeStep, open, openDialog } = this.state;
         const { registrySuccess } = this.props;
@@ -237,6 +248,7 @@ const mapDispatchToProps = dispatch => ({
   sendRegitry: value => dispatch(sentRegistryCandidate(value)),
   updatePersonalData: value => dispatch(updatePeronsalData(value)),
   updateHealth: value => dispatch(updateHealth(value)),
+  updateEconomy: value => dispatch(updateEconomy(value)),
   updatePreferences: value => dispatch(updatePreferences(value)),
   resetCandidateObject: value => dispatch(resetCandidateObject(value)),
   registryFailureAction: value => dispatch(registryFailure(value)),

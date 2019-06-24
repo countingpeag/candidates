@@ -18,15 +18,14 @@ class PreferencesInfo extends Component {
     }
 
     render(){
-        const { preferencesScholarshipFlag, preferencesShiftWished, preferencesWayToKnow, preferencesSpecialtyWhished1 } = this.props.state;
-        const options = ['ELECTRÓNICA','LABORATORISTA QUÍMICO','MANTENIMIENTO AUTOMOTRIZ','LABORATORISTA CLÍNICO'];
+        const { preferencesScholarshipFlag, preferencesShiftWished, preferencesWayToKnow } = this.props.state;
         
         return(
             <Grid>
                 <Row> 
                     <Col xs={12}>
                         <Row center="xs">
-                            <Col xs={6} md={3} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Beca PROSPERA? </InputLabel>
                                     <Select value={preferencesScholarshipFlag} onChange={this.handleChange} name="scholarship" >
@@ -42,7 +41,7 @@ class PreferencesInfo extends Component {
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={6} md={3} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel> ¿Como se entero? </InputLabel>
                                     <Select value={preferencesWayToKnow} onChange={this.handleChange} name="info">
@@ -61,7 +60,7 @@ class PreferencesInfo extends Component {
                                     </Select>
                                 </FormControl>
                             </Col>
-                            <Col xs={6} md={3} className="topSpace">
+                            <Col xs={6} md={4} className="topSpace">
                                 <FormControl variant="outlined" className="selectWidth">
                                     <InputLabel>Turno deseado </InputLabel>
                                     <Select value={preferencesShiftWished} onChange={this.handleChange} name="shift">
@@ -74,23 +73,6 @@ class PreferencesInfo extends Component {
                                         <MenuItem value={'Vespertino'}>
                                             Vespertino
                                         </MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Col>
-                            <Col xs={6} md={3} className="topSpace">
-                                <FormControl variant="outlined" className="specialtiesOptions">
-                                    <InputLabel> Especialidad </InputLabel>
-                                    <Select value={preferencesSpecialtyWhished1} onChange={this.handleChange} name="option1" >
-                                        <MenuItem value=''>
-                                            <em>None</em>
-                                        </MenuItem>
-                                        {
-                                            options.map( item => 
-                                                <MenuItem key={item} value={item}>
-                                                    {item}
-                                                </MenuItem>
-                                            )
-                                        }
                                     </Select>
                                 </FormControl>
                             </Col>
